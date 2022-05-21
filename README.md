@@ -16,32 +16,28 @@
   #Solution Proposée
       Afin de remédier les différentes difficultés rencontrées, l’informatisation du système actuel à
       travers une application informatique est devient indispensable. Cette application permet de :
-          •) Centraliser et faciliter l’accès aux données.
-          •) Obtenir une fiabilité des données à travers des contrôles de saisie efficace.
-          •) Suivre et évaluer les activités en matière de formation.
-          •) Avoir une application évolutive et maintenable.
+          a) Centraliser et faciliter l’accès aux données.
+          b) Obtenir une fiabilité des données à travers des contrôles de saisie efficace.
+          c) Suivre et évaluer les activités en matière de formation.
+          d) Avoir une application évolutive et maintenable.
    1) Règles de gestion
-          •) Un participant peut participer à plusieurs formations,
-          •) Une formation contient au moins 4 participants,
-          •) Une formation est animée par un seul formateur,
-          •) Une direction contient plusieurs employés.
-          •) Un employé appartient à une seule direction.
+          a) Un participant peut participer à plusieurs formations,
+          b) Une formation contient au moins 4 participants,
+          c) Une formation est animée par un seul formateur,
+          d) Une direction contient plusieurs employés.
+          e) Un employé appartient à une seule direction.
   2) Fonctionnalités de l'application
-      •) L’utilisateur doit s’inscrire à l’application : création d’un compte (login et mot
-      de passe)
-      •) L'utilisateur de l'application doit saisir son login et son mot de passe pour
-      accéder à l'application.
-      •) L'utilisateur à la possibilité d'ajouter, de modifier, de supprimer et d'afficher les
-      données des tables suivantes : participants, formations, formateurs, directions et
-      domaines.
+         a) L’utilisateur doit s’inscrire à l’application : création d’un compte (login et mot
+         de passe)
+         b) L'utilisateur de l'application doit saisir son login et son mot de passe pour
+         accéder à l'application.
+         c) L'utilisateur à la possibilité d'ajouter, de modifier, de supprimer et d'afficher les
+         données des tables suivantes : participants, formations, formateurs, directions et
+         domaines.
   3) Charte graphique
-      •) Tous les titres sont en couleur bleue ; leur taille est plus grande que celle de
-      libellé.
-      •) Tous les libellées sont en couleur rouge. Exemple le nom du participant.
-      •) L'utilisation des menus est souhaitable.
+         a) Tous les titres sont en couleur bleue ; leur taille est plus grande que celle de
+         libellé.
+         b) Tous les libellées sont en couleur rouge. Exemple le nom du participant.
+         c) L'utilisation des menus est souhaitable.
   4) Contrôles de saisie
-      •) Tous les champs sont obligatoires.
-      •) Les zones de textes tel que le nom, le prénom n’acceptent que des chaines de
-      caractère.
-      •) Les zones de texte comme le numéro de téléphone, nombre de participants
-      n’autorisent que les chiffres
+         ²
