@@ -1,4 +1,4 @@
-package com.example.gestion_de_formation;
+package com.example.gestion_de_formation.controler;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
