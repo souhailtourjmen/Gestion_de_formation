@@ -1,15 +1,24 @@
 package com.example.gestion_de_formation.check;
 
+import com.example.gestion_de_formation.DB.DbConnection;
+
+import java.sql.SQLException;
 import java.util.Objects;
 
 public class Check {
-
-    public boolean checkchamp(String ch){
-        return ch==null;
+    public Check() {
     }
+
+    public  int checkchamp(String ch){
+        if(ch.equals("")){
+            return -1;
+        }
+        return 0;
+    }
+
     public  int checkzone(String strNum){
         if (strNum == null) {
-            return 0;
+            return -1;
         }
         int s = 0;
         char[] chars = strNum.toCharArray();
@@ -20,16 +29,23 @@ public class Check {
         }
         return s;
     }
-    public  boolean cheknumber(String strNum){
+    public  int cheknumber(String strNum){
         if (strNum == null) {
-            return false;
+            return -1;
         }
         try {
             double d = Double.parseDouble(strNum);
         } catch (NumberFormatException nfe) {
-            return false;
+            return -1;
         }
-        return true;
+        return 0;
+    }
+    public int checklogin(String sql) throws SQLException {
+        int result=0;
+        DbConnection con =new DbConnection();
+        con.connexionDatabase();
+        result=con.Check("user",sql);
+        return result;
     }
 
 }

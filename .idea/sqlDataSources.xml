@@ -5,4 +5,19 @@
       <data-sources db="adc370b8-ae75-42f6-ac17-83471f899d0c" ddl="84eb9b0c-5111-4feb-87cd-bea0d90ea9a3" />
     </mapping>
   </component>
+  <component name="SqlDataSourceStorage">
+    <option name="dataSources">
+      <list>
+        <State>
+          <option name="id" value="2ad4e509-27d6-417c-923d-fe4d0453eab5" />
+          <option name="name" value="DDL data source" />
+          <option name="urls">
+            <array>
+              <option value="file://$PROJECT_DIR$/src/main/resources/SQL/Formation.sql" />
+            </array>
+          </option>
+        </State>
+      </list>
+    </option>
+  </component>
 </project>

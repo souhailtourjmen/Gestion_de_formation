@@ -62,7 +62,7 @@
                   <Insets left="20.0" right="20.0" top="5.0" />
                </VBox.margin>
             </Label>
-            <TextField fx:id="nom">
+            <TextField fx:id="nom" promptText="First name">
                <VBox.margin>
                   <Insets left="20.0" right="20.0" top="5.0" />
                </VBox.margin>
@@ -75,7 +75,7 @@
                   <Insets left="20.0" right="20.0" top="5.0" />
                </VBox.margin>
             </Label>
-            <TextField fx:id="prenom">
+            <TextField fx:id="prenom" promptText="Last name">
                <VBox.margin>
                   <Insets left="20.0" right="20.0" top="5.0" />
                </VBox.margin>
@@ -91,7 +91,23 @@
                   <Insets left="20.0" right="20.0" top="5.0" />
                </VBox.margin>
             </Label>
-            <TextField fx:id="mail">
+            <TextField fx:id="mail" promptText="Example@gmail.com">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <Label layoutX="30.0" layoutY="117.0" prefHeight="10.0" prefWidth="102.0" text="Tel" textFill="#041562">
+               <font>
+                  <Font name="Verdana" size="13.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" top="5.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="tel" layoutX="30.0" layoutY="138.0" promptText="22222222">
                <VBox.margin>
                   <Insets left="20.0" right="20.0" top="5.0" />
                </VBox.margin>
@@ -103,7 +119,7 @@
                         <Insets left="20.0" top="3.0" />
                      </HBox.margin>
                   </CheckBox>
-                  <TextField fx:id="matricule" />
+                  <TextField fx:id="matricule" promptText="Matricule" />
                </children>
                <VBox.margin>
                   <Insets left="5.0" top="10.0" />
