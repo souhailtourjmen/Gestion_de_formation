@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="477.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestion_de_formation.controler.Addprofil">
+   <children>
+      <Label alignment="CENTER" layoutX="201.0" layoutY="42.0" prefHeight="18.0" prefWidth="198.0" text="Modify Profil" textFill="#041562">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff05" height="354.0" layoutX="47.0" layoutY="99.0" stroke="BLACK" strokeType="INSIDE" width="518.0" />
+      <VBox layoutX="72.0" layoutY="148.0">
+         <children>
+            <Label prefHeight="30.0" prefWidth="94.0" text="Nom">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
+            <Label prefHeight="30.0" prefWidth="94.0" text="Prenom">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+            <Label prefHeight="30.0" prefWidth="94.0" text="Tel">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+            <Label prefHeight="30.0" prefWidth="94.0" text="Profil">
+               <VBox.margin>
+                  <Insets bottom="10.0" top="20.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+         <padding>
+            <Insets left="30.0" />
+         </padding>
+      </VBox>
+      <VBox layoutX="260.0" layoutY="156.0" prefHeight="186.0" prefWidth="150.0">
+         <children>
+            <TextField fx:id="nom">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="prenom">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="tel">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </TextField>
+            <ComboBox fx:id="profil" prefWidth="150.0">
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </ComboBox>
+         </children>
+      </VBox>
+      <Button layoutX="236.0" layoutY="383.0" mnemonicParsing="false" onAction="#Addprofil" prefHeight="26.0" prefWidth="198.0" style="-fx-background-color: #098B54;" text="Button" textFill="WHITE" />
+   </children>
+</AnchorPane>

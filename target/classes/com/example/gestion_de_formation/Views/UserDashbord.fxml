@@ -135,23 +135,6 @@
                                         <Insets bottom="10.0" left="30.0" right="30.0" top="40.0" />
                                     </VBox.margin>
                                 </HBox>
-                                <HBox layoutX="20.0" layoutY="276.0" prefHeight="35.0" prefWidth="202.0" style="-fx-background-color: #ffffff; -fx-background-radius: 5;">
-                                    <children>
-                                        <ImageView fitHeight="38.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@Img/icons8-classe-50.png" />
-                                            </image>
-                                        </ImageView>
-                                        <Button fx:id="btnsesion" mnemonicParsing="false" onAction="#Session" prefHeight="37.0" prefWidth="144.0" style="-fx-background-color: #ffffff;" text="List d'attend ">
-                                            <padding>
-                                                <Insets right="45.0" />
-                                            </padding>
-                                        </Button>
-                                    </children>
-                                    <VBox.margin>
-                                        <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
-                                    </VBox.margin>
-                                </HBox>
                                 <HBox layoutX="10.0" layoutY="324.0" prefHeight="35.0" prefWidth="202.0" style="-fx-background-color: #ffffff; -fx-background-radius: 5;">
                                     <children>
                                         <ImageView fitHeight="38.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
@@ -176,7 +159,7 @@
                                                 <Image url="@Img/icons8-professeur-de-chant-50.png" />
                                             </image>
                                         </ImageView>
-                                        <Button fx:id="Btnaddformateur" mnemonicParsing="false" onAction="#Addformateur" prefHeight="37.0" prefWidth="144.0" style="-fx-background-color: #ffffff;" text="Profile">
+                                        <Button mnemonicParsing="false" onAction="#Addprofil" prefHeight="37.0" prefWidth="144.0" style="-fx-background-color: #ffffff;" text="Profile">
                                             <padding>
                                                 <Insets right="5.0" />
                                             </padding>
