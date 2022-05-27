@@ -40,12 +40,32 @@ public class Check {
         }
         return 0;
     }
-    public int checklogin(String sql) throws SQLException {
-        int result=0;
-        DbConnection con =new DbConnection();
-        con.connexionDatabase();
-        result=con.Check("user",sql);
+    public int check_champ(String[] champ){
+        int result =0;
+        for (String s : champ) {
+
+            if (checkchamp(s)!=0) {
+                return 0;
+            }
+            result = result + 1;
+
+        }
+        if(result != 0) {
+            if(checkzone(champ[0])!=0){
+                return 0;
+            }
+
+            if(checkzone(champ[1])!=0){
+                return 0;
+            }
+
+            if(cheknumber(champ[3])!=0){
+                return 0;
+            }
+        }
+
         return result;
     }
+
 
 }

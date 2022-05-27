@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3325
--- Généré le : mar. 24 mai 2022 à 22:48
+-- Généré le : jeu. 26 mai 2022 à 23:46
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 8.1.6
 
@@ -20,8 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `formation`
 --
-CREATE DATABASE IF NOT EXISTS `formation` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `formation`;
+
 -- --------------------------------------------------------
 
 --
@@ -44,6 +43,29 @@ INSERT INTO `admin` (`id`, `post`) VALUES
 (4133, 'sous administrateur '),
 (4175, 'sous administrateur'),
 (4180, 'sous administrateur');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `administration`
+--
+
+CREATE TABLE `administration` (
+  `id` int(8) NOT NULL,
+  `nom` varchar(25) NOT NULL,
+  `prenom` varchar(25) NOT NULL,
+  `email` varchar(25) NOT NULL,
+  `tel` varchar(25) NOT NULL,
+  `pwd` varchar(25) NOT NULL,
+  `idadmin` int(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `administration`
+--
+
+INSERT INTO `administration` (`id`, `nom`, `prenom`, `email`, `tel`, `pwd`, `idadmin`) VALUES
+(1, 'Noha', 'Noha', 'Noha@gmail.com', '22222222', 'admin123', 4116);
 
 -- --------------------------------------------------------
 
@@ -91,16 +113,25 @@ CREATE TABLE `formation` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `participant`
+-- Structure de la table `particpant`
 --
 
-CREATE TABLE `participant` (
-  `id` int(8) NOT NULL,
-  `Nom` varchar(25) NOT NULL,
+CREATE TABLE `particpant` (
+  `idparticpant` int(8) NOT NULL,
+  `nom` varchar(25) NOT NULL,
   `prenom` varchar(25) NOT NULL,
-  `date` date NOT NULL,
-  `idprofil` int(4) NOT NULL
+  `email` varchar(25) NOT NULL,
+  `tel` varchar(8) NOT NULL,
+  `pwd` varchar(25) NOT NULL,
+  `idprofil` int(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `particpant`
+--
+
+INSERT INTO `particpant` (`idparticpant`, `nom`, `prenom`, `email`, `tel`, `pwd`, `idprofil`) VALUES
+(1, 'souhail', 'tourjmen', 'tourjmen@gmail', '50233', '123', NULL);
 
 -- --------------------------------------------------------
 
@@ -120,9 +151,12 @@ CREATE TABLE `profil` (
 --
 
 CREATE TABLE `session` (
-  `id` int(8) NOT NULL,
-  `idparticipant` int(8) NOT NULL,
-  `idformation` int(8) NOT NULL
+  `Idsession` int(11) NOT NULL,
+  `idformation` int(8) NOT NULL,
+  `idparticpant` int(8) NOT NULL,
+  `debut` date NOT NULL,
+  `fin` date NOT NULL,
+  `Nbparticipant` int(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -134,9 +168,15 @@ CREATE TABLE `session` (
 CREATE TABLE `user` (
   `email` varchar(25) NOT NULL,
   `password` varchar(25) NOT NULL,
-  `role` varchar(1) NOT NULL DEFAULT 'U',
-  `matricule` int(4) DEFAULT NULL
+  `role` varchar(1) NOT NULL DEFAULT 'U'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`email`, `password`, `role`) VALUES
+('Noha@gmail.com', 'admin123', 'A');
 
 --
 -- Index pour les tables déchargées
@@ -147,6 +187,14 @@ CREATE TABLE `user` (
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `administration`
+--
+ALTER TABLE `administration`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD KEY `idamdni` (`idadmin`);
 
 --
 -- Index pour la table `domaine`
@@ -170,11 +218,11 @@ ALTER TABLE `formation`
   ADD KEY `idformateur` (`idformateur`);
 
 --
--- Index pour la table `participant`
+-- Index pour la table `particpant`
 --
-ALTER TABLE `participant`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `idprofil` (`idprofil`);
+ALTER TABLE `particpant`
+  ADD PRIMARY KEY (`idparticpant`,`email`),
+  ADD KEY `idprof` (`idprofil`);
 
 --
 -- Index pour la table `profil`
@@ -186,16 +234,15 @@ ALTER TABLE `profil`
 -- Index pour la table `session`
 --
 ALTER TABLE `session`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`Idsession`),
   ADD KEY `formation` (`idformation`),
-  ADD KEY `participant` (`idparticipant`);
+  ADD KEY `particpant` (`idparticpant`);
 
 --
 -- Index pour la table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`email`,`password`),
-  ADD KEY `admin` (`matricule`);
+  ADD PRIMARY KEY (`email`,`password`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -206,6 +253,12 @@ ALTER TABLE `user`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7031;
+
+--
+-- AUTO_INCREMENT pour la table `administration`
+--
+ALTER TABLE `administration`
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `domaine`
@@ -226,10 +279,10 @@ ALTER TABLE `formation`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `participant`
+-- AUTO_INCREMENT pour la table `particpant`
 --
-ALTER TABLE `participant`
-  MODIFY `idprofil` int(4) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `particpant`
+  MODIFY `idparticpant` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `profil`
@@ -241,11 +294,17 @@ ALTER TABLE `profil`
 -- AUTO_INCREMENT pour la table `session`
 --
 ALTER TABLE `session`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT;
+  MODIFY `Idsession` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Contraintes pour les tables déchargées
 --
+
+--
+-- Contraintes pour la table `administration`
+--
+ALTER TABLE `administration`
+  ADD CONSTRAINT `idamdni` FOREIGN KEY (`idadmin`) REFERENCES `admin` (`id`);
 
 --
 -- Contraintes pour la table `formateur`
@@ -261,23 +320,23 @@ ALTER TABLE `formation`
   ADD CONSTRAINT `idformateur` FOREIGN KEY (`idformateur`) REFERENCES `formateur` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `participant`
+-- Contraintes pour la table `particpant`
 --
-ALTER TABLE `participant`
-  ADD CONSTRAINT `pf` FOREIGN KEY (`idprofil`) REFERENCES `profil` (`Idprofil`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `particpant`
+  ADD CONSTRAINT `idprof` FOREIGN KEY (`idprofil`) REFERENCES `profil` (`Idprofil`);
 
 --
 -- Contraintes pour la table `session`
 --
 ALTER TABLE `session`
   ADD CONSTRAINT `formation` FOREIGN KEY (`idformation`) REFERENCES `formation` (`id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `participant` FOREIGN KEY (`idparticipant`) REFERENCES `participant` (`id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `particpant` FOREIGN KEY (`idparticpant`) REFERENCES `particpant` (`idparticpant`);
 
 --
 -- Contraintes pour la table `user`
 --
 ALTER TABLE `user`
-  ADD CONSTRAINT `admin` FOREIGN KEY (`matricule`) REFERENCES `admin` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `ad` FOREIGN KEY (`email`) REFERENCES `administration` (`email`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

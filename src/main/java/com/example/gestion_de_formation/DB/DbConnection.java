@@ -28,6 +28,7 @@ public class DbConnection {
             Class.forName("com.mysql.jdbc.Driver");
 
              connection = DriverManager.getConnection(url, username, password);
+            System.out.println("connection valide");
         } catch (Exception e)
         {
             System.err.println(e);//
@@ -47,179 +48,53 @@ public class DbConnection {
         return null;
     }
 
-    public ResultSet exécutionQuery(String sql) {
+    public  ResultSet select( String request ) throws ClassNotFoundException, SQLException {
+        ResultSet rs = null;
         connexionDatabase();
-        ResultSet resultSet = null;
+        statement = connection.createStatement();
+        return  rs = statement.executeQuery(request);
+
+
+    }
+
+
+
+
+
+    //verification compte client
+    public  int checkaccount(String sql  ) throws ClassNotFoundException {
+
+
+        int rsn =0;
         try {
+            connexionDatabase();
             statement = connection.createStatement();
-            resultSet = statement.executeQuery(sql);
-            System.out.println(sql);
-        } catch (SQLException ex) {System.err.println(ex);//
-        }
-        return resultSet;
-    }
+            ResultSet rs = statement.executeQuery(sql);
+            while (rs.next()) {
+                rsn++;
 
-    public String exécutionUpdate(String sql) {
-        connexionDatabase();
-        String result = "";
-        try {
-            statement = connection.createStatement();
-            statement.executeUpdate(sql);
-            result = "secces";
-
-        } catch (SQLException ex) {
-            result = ex.toString();
-        }
-        return result;
-
-    }
-
-
-    public ResultSet querySelectAll(String nomTable) {
-
-        connexionDatabase();
-        SQL = "SELECT * FROM " + nomTable;
-        System.out.println(SQL);
-        return this.exécutionQuery(SQL);
-
-    }
-    public int Check(String nomTable,String etat) throws SQLException {
-        int rsn=0;
-        connexionDatabase();
-        SQL = "SELECT * FROM " + nomTable+"where email="+etat;
-        System.out.println(SQL);
-         ResultSet rs=exécutionQuery(SQL);
-        while (rs.next()) {
-            rsn++;
+            }
+            closeconnexion();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         return rsn;
-
     }
+    // methode insert
+    public int insert(String req  ) throws SQLException, ClassNotFoundException{
+        int rs=0;
+        try {
+            connexionDatabase();
+            statement = connection.createStatement();
+            rs=statement.executeUpdate(req);
+            closeconnexion();
+            statement.close();
 
-
-    public ResultSet querySelectAll(String nomTable, String état) {
-
-        connexionDatabase();
-        SQL = "SELECT * FROM " + nomTable + " WHERE " + état;
-        return this.exécutionQuery(SQL);
-
-    }
-
-
-    public ResultSet querySelect(String[] nomColonne, String nomTable) {
-
-        connexionDatabase();
-        int i;
-        SQL = "SELECT ";
-
-        for (i = 0; i <= nomColonne.length - 1; i++) {
-            SQL += nomColonne[i];
-            if (i < nomColonne.length - 1) {
-                SQL += ",";
-            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-
-        SQL += " FROM " + nomTable;
-        return this.exécutionQuery(SQL);
-
-    }
-
-
-    public ResultSet fcSelectCommand(String[] nomColonne, String nomTable, String état) {
-
-        connexionDatabase();
-        int i;
-        SQL = "SELECT ";
-
-        for (i = 0; i <= nomColonne.length - 1; i++) {
-            SQL += nomColonne[i];
-            if (i < nomColonne.length - 1) {
-                SQL += ",";
-            }
-        }
-
-        SQL += " FROM " + nomTable + " WHERE " + état;
-        return this.exécutionQuery(SQL);
-
-    }
-
-    public String queryInsert(String nomTable, String[] contenuTableau) {
-
-        connexionDatabase();
-        int i;
-        SQL = "INSERT INTO " + nomTable + " VALUES(";
-
-        for (i = 0; i <= contenuTableau.length - 1; i++) {
-            SQL += "'" + contenuTableau[i] + "'";
-            if (i < contenuTableau.length - 1) {
-                SQL += ",";
-            }
-        }
-
-        SQL += ")";
-        return this.exécutionUpdate(SQL);
-
-    }
-//Fungsi eksekusi query insert
-
-    public String queryInsert(String nomTable, String[] nomColonne, String[] contenuTableau) {
-
-        connexionDatabase();
-        int i;
-        SQL = "INSERT INTO " + nomTable + "(";
-        for (i = 0; i <= nomColonne.length - 1; i++) {
-            SQL += nomColonne[i];
-            if (i < nomColonne.length - 1) {
-                SQL += ",";
-            }
-        }
-        SQL += ") VALUES(";
-        for (i = 0; i <= contenuTableau.length - 1; i++) {
-            SQL += "'" + contenuTableau[i] + "'";
-            if (i < contenuTableau.length - 1) {
-                SQL += ",";
-            }
-        }
-
-        SQL += ")";
-        return this.exécutionUpdate(SQL);
-
-    }
-
-    //Fungsi eksekusi query update
-    public String queryUpdate(String nomTable, String[] nomColonne, String[] contenuTableau, String état) {
-
-        connexionDatabase();
-        int i;
-        SQL = "UPDATE " + nomTable + " SET ";
-
-        for (i = 0; i <= nomColonne.length - 1; i++) {
-            SQL += nomColonne[i] + "='" + contenuTableau[i] + "'";
-            if (i < nomColonne.length - 1) {
-                SQL += ",";
-            }
-        }
-
-        SQL += " WHERE " + état;
-        return this.exécutionUpdate(SQL);
-
-    }
-
-    //Fungsi eksekusi query delete
-    public String queryDelete(String nomtable) {
-
-        connexionDatabase();
-        SQL = "DELETE FROM " + nomtable;
-        return this.exécutionUpdate(SQL);
-
-    }
-
-    //Overload fungsi eksekusi query delete dengan where
-    public String queryDelete(String nomTable, String état) {
-
-        connexionDatabase();
-        SQL = "DELETE FROM " + nomTable + " WHERE " + état;
-        return this.exécutionUpdate(SQL);
+        return rs ;
 
     }
 }
