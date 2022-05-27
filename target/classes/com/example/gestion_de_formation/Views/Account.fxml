@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="606.0" prefWidth="722.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestion_de_formation.controler.Account">
+   <children>
+      <ImageView fitHeight="437.0" fitWidth="444.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Img/backgroundhome.png" />
+         </image>
+      </ImageView>
+      <VBox layoutX="324.0" layoutY="47.0" prefHeight="98.0" prefWidth="607.0">
+         <children>
+            <Label prefHeight="50.0" prefWidth="506.0" text="Create your account" textFill="#11468f">
+               <font>
+                  <Font name="Verdana" size="34.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="47.0" prefWidth="405.0">
+               <children>
+                  <Label layoutX="3.0" layoutY="-13.0" prefHeight="31.0" prefWidth="191.0" text="Already have an account ?" textFill="#11468f">
+                     <font>
+                        <Font name="Verdana" size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="3.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label layoutX="3.0" layoutY="-13.0" onMouseClicked="#Login" prefHeight="10.0" prefWidth="102.0" text="Login" textFill="#da1212">
+                     <font>
+                        <Font name="Verdana" size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox layoutX="397.0" layoutY="184.0" prefHeight="403.0" prefWidth="274.0">
+         <children>
+            <Label prefHeight="10.0" prefWidth="102.0" text="First name" textFill="#041562">
+               <font>
+                  <Font name="Verdana" size="13.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" top="5.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="nom" promptText="First name">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <Label prefHeight="10.0" prefWidth="102.0" text="Last name" textFill="#041562">
+               <font>
+                  <Font name="Verdana" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" top="5.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="prenom" promptText="Last name">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <Label layoutX="30.0" layoutY="30.0" prefHeight="10.0" prefWidth="102.0" text="Email" textFill="#041562">
+               <font>
+                  <Font name="Verdana" size="13.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" top="5.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="mail" promptText="Example@gmail.com">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <Label layoutX="30.0" layoutY="117.0" prefHeight="10.0" prefWidth="102.0" text="Tel" textFill="#041562">
+               <font>
+                  <Font name="Verdana" size="13.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" top="5.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="tel" layoutX="30.0" layoutY="138.0" promptText="22222222">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <HBox prefHeight="27.0" prefWidth="250.0">
+               <children>
+                  <CheckBox fx:id="Idadmin" mnemonicParsing="false" text="Admin :">
+                     <HBox.margin>
+                        <Insets left="20.0" top="3.0" />
+                     </HBox.margin>
+                  </CheckBox>
+                  <TextField fx:id="matricule" cache="true" promptText="Matricule" />
+               </children>
+               <VBox.margin>
+                  <Insets left="5.0" top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <Label layoutX="10.0" layoutY="216.0" prefHeight="10.0" prefWidth="102.0" text="Password" textFill="#041562">
+               <font>
+                  <Font name="Verdana" size="13.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" top="5.0" />
+               </VBox.margin>
+            </Label>
+            <PasswordField fx:id="pwd" promptText="S15ab_85">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </VBox.margin>
+            </PasswordField>
+            <Label layoutX="10.0" layoutY="220.0" prefHeight="16.0" prefWidth="149.0" text="Confirm Password" textFill="#041562">
+               <font>
+                  <Font name="Verdana" size="13.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" top="5.0" />
+               </VBox.margin>
+            </Label>
+            <PasswordField fx:id="cpwd" layoutX="30.0" layoutY="222.0" promptText="S15ab_85">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </VBox.margin>
+            </PasswordField>
+            <Button mnemonicParsing="false" onAction="#Register" prefHeight="35.0" prefWidth="174.0" style="-fx-background-color: #041562; -fx-background-radius: 5;" text="Register" textFill="#fafafa">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="50.0" right="50.0" top="30.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

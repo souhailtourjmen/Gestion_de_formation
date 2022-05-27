@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="920.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestion_de_formation.controler.User">
+    <children>
+        <BorderPane prefHeight="620.0" prefWidth="920.0">
+            <center>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <VBox prefHeight="620.0" prefWidth="718.0">
+                            <children>
+                                <Label fx:id="Titre" prefHeight="26.0" prefWidth="194.0" text="Overview">
+                                    <font>
+                                        <Font name="Candara Bold" size="24.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets left="20.0" top="30.0" />
+                                    </VBox.margin>
+                                </Label>
+                                <AnchorPane prefHeight="46.0" prefWidth="718.0">
+                                    <children>
+                                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#114473" height="52.0" layoutX="12.0" stroke="BLACK" strokeType="INSIDE" width="696.0" />
+                                        <Label layoutX="79.0" prefHeight="48.0" prefWidth="513.0" text="Label" />
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets top="20.0" />
+                                    </VBox.margin>
+                                </AnchorPane>
+                                <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-border-color: #041562;">
+                                    <VBox.margin>
+                                        <Insets left="10.0" right="10.0" top="10.0" />
+                                    </VBox.margin>
+                                    <children>
+                                        <Label fx:id="label1" alignment="CENTER" prefHeight="46.0" prefWidth="124.0" style="-fx-alignment: #EEEEEE;" text="Label">
+                                            <HBox.margin>
+                                                <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                        <Label fx:id="label2" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="46.0" prefWidth="124.0" style="-fx-alignment: #EEEEEE;" text="Label">
+                                            <HBox.margin>
+                                                <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                        <Label fx:id="label3" alignment="CENTER" layoutX="134.0" layoutY="10.0" prefHeight="46.0" prefWidth="124.0" style="-fx-alignment: #EEEEEE;" text="Label">
+                                            <HBox.margin>
+                                                <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                        <Label fx:id="label4" alignment="CENTER" layoutX="258.0" layoutY="10.0" prefHeight="46.0" prefWidth="124.0" style="-fx-alignment: #EEEEEE;" text="Label">
+                                            <HBox.margin>
+                                                <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                        <Label fx:id="label5" alignment="CENTER" layoutX="382.0" layoutY="10.0" prefHeight="46.0" prefWidth="124.0" style="-fx-alignment: #EEEEEE;" text="Label">
+                                            <HBox.margin>
+                                                <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <AnchorPane prefHeight="458.0" prefWidth="718.0">
+                                    <VBox.margin>
+                                        <Insets right="10.0" top="30.0" />
+                                    </VBox.margin>
+                                    <children>
+                                        <ScrollPane layoutX="9.0" layoutY="-2.0" prefHeight="398.0" prefWidth="698.0">
+                                            <content>
+                                                <GridPane prefHeight="47.0" prefWidth="714.0">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                </GridPane>
+                                            </content>
+                                        </ScrollPane>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </VBox>
+                    </children>
+                </AnchorPane>
+            </center>
+            <left>
+                <AnchorPane prefHeight="620.0" prefWidth="202.0" style="-fx-background-color: #041562;" BorderPane.alignment="CENTER">
+                    <children>
+                        <VBox prefHeight="620.0" prefWidth="202.0">
+                            <children>
+                                <ImageView fitHeight="112.0" fitWidth="161.0" pickOnBounds="true" preserveRatio="true">
+                                    <VBox.margin>
+                                        <Insets bottom="20.0" left="20.0" right="20.0" top="50.0" />
+                                    </VBox.margin>
+                                    <image>
+                                        <Image url="@Img/Logo.png" />
+                                    </image>
+                                </ImageView>
+                                <Label fx:id="Account" alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="78.0" text="Label" textAlignment="CENTER" textFill="#da1212">
+                                    <VBox.margin>
+                                        <Insets left="50.0" right="30.0" top="5.0" />
+                                    </VBox.margin>
+                                    <font>
+                                        <Font name="Cambria" size="16.0" />
+                                    </font>
+                                </Label>
+                                <HBox prefHeight="35.0" prefWidth="202.0" style="-fx-background-color: #ffffff; -fx-background-radius: 5;">
+                                    <children>
+                                        <ImageView fitHeight="38.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@Img/icons8-accueil-24%20(2).png" />
+                                            </image>
+                                        </ImageView>
+                                        <Button fx:id="Btnoverview" mnemonicParsing="false" onAction="#Overview" prefHeight="37.0" prefWidth="144.0" style="-fx-background-color: #ffffff;" text="Overview">
+                                            <padding>
+                                                <Insets right="40.0" />
+                                            </padding>
+                                        </Button>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="30.0" right="30.0" top="40.0" />
+                                    </VBox.margin>
+                                </HBox>
+                                <HBox layoutX="20.0" layoutY="276.0" prefHeight="35.0" prefWidth="202.0" style="-fx-background-color: #ffffff; -fx-background-radius: 5;">
+                                    <children>
+                                        <ImageView fitHeight="38.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@Img/icons8-classe-50.png" />
+                                            </image>
+                                        </ImageView>
+                                        <Button fx:id="btnsesion" mnemonicParsing="false" onAction="#Session" prefHeight="37.0" prefWidth="144.0" style="-fx-background-color: #ffffff;" text="List d'attend ">
+                                            <padding>
+                                                <Insets right="45.0" />
+                                            </padding>
+                                        </Button>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                                    </VBox.margin>
+                                </HBox>
+                                <HBox layoutX="10.0" layoutY="324.0" prefHeight="35.0" prefWidth="202.0" style="-fx-background-color: #ffffff; -fx-background-radius: 5;">
+                                    <children>
+                                        <ImageView fitHeight="38.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@Img/icons8-éducation-30.png" />
+                                            </image>
+                                        </ImageView>
+                                        <Button fx:id="Btnaddformation" mnemonicParsing="false" onAction="#Addformation" prefHeight="37.0" prefWidth="144.0" style="-fx-background-color: #ffffff;" text="Add Formation">
+                                            <padding>
+                                                <Insets right="5.0" />
+                                            </padding>
+                                        </Button>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                                    </VBox.margin>
+                                </HBox>
+                                <HBox layoutX="10.0" layoutY="363.0" prefHeight="35.0" prefWidth="202.0" style="-fx-background-color: #ffffff; -fx-background-radius: 5;">
+                                    <children>
+                                        <ImageView fitHeight="38.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@Img/icons8-professeur-de-chant-50.png" />
+                                            </image>
+                                        </ImageView>
+                                        <Button fx:id="Btnaddformateur" mnemonicParsing="false" onAction="#Addformateur" prefHeight="37.0" prefWidth="144.0" style="-fx-background-color: #ffffff;" text="Profile">
+                                            <padding>
+                                                <Insets right="5.0" />
+                                            </padding>
+                                        </Button>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                                    </VBox.margin>
+                                </HBox>
+                                <Label fx:id="Btnlogout" onDragDetected="#logout" text="Logout" textFill="WHITE">
+                                    <graphic>
+                                        <ImageView fitHeight="34.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@Img/icons8-déconnexion-30.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <VBox.margin>
+                                        <Insets left="30.0" top="90.0" />
+                                    </VBox.margin>
+                                </Label>
+                            </children>
+                        </VBox>
+                    </children>
+                </AnchorPane>
+            </left>
+        </BorderPane>
+    </children>
+</AnchorPane>

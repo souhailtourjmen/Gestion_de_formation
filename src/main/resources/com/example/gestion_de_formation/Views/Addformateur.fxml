@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="594.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestion_de_formation.controler.AddFormateur">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="354.0" layoutX="33.0" layoutY="71.0" stroke="BLACK" strokeType="INSIDE" width="515.0" />
+      <Label layoutX="204.0" layoutY="31.0" prefHeight="18.0" prefWidth="172.0" text="Addformateur" textFill="#11468f">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label layoutX="138.0" layoutY="125.0" prefHeight="18.0" prefWidth="90.0" text="Nom" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="352.6" />
+      <Label layoutX="138.0" layoutY="161.0" prefHeight="18.0" prefWidth="90.0" text="Prenom" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="352.6" />
+      <Label layoutX="138.0" layoutY="194.0" prefHeight="18.0" prefWidth="90.0" text="Domaine" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="352.6" />
+      <Label layoutX="138.0" layoutY="230.0" prefHeight="18.0" prefWidth="90.0" text="Email" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="352.6" />
+      <Label layoutX="138.0" layoutY="263.0" prefHeight="18.0" prefWidth="90.0" text="Tel" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="352.6" />
+      <TextField fx:id="Nom" layoutX="258.0" layoutY="122.0" promptText="Nom" AnchorPane.leftAnchor="258.0" AnchorPane.rightAnchor="186.39999999999998" />
+      <TextField fx:id="prenom" layoutX="258.0" layoutY="157.0" promptText="Prnom" AnchorPane.leftAnchor="258.0" AnchorPane.rightAnchor="186.39999999999998" />
+      <TextField fx:id="email" layoutX="258.0" layoutY="226.0" promptText="Exmple@gmail.com" AnchorPane.leftAnchor="258.0" AnchorPane.rightAnchor="186.39999999999998" />
+      <TextField fx:id="tel" layoutX="258.0" layoutY="259.0" promptText="+216" text="+216" AnchorPane.leftAnchor="258.0" AnchorPane.rightAnchor="186.39999999999998" />
+      <ChoiceBox fx:id="domaine" layoutX="258.0" layoutY="191.0" prefWidth="150.0" AnchorPane.leftAnchor="258.0" AnchorPane.rightAnchor="186.39999999999998" />
+      <Button layoutX="224.0" layoutY="337.0" mnemonicParsing="false" onAction="#Addformateur" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #4BB543;" text="AddFormateur" AnchorPane.leftAnchor="224.0" AnchorPane.rightAnchor="219.6" />
+   </children>
+</AnchorPane>

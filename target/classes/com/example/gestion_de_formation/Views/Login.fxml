@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="525.0" prefWidth="901.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestion_de_formation.controler.Login">
+   <children>
+      <ImageView fitHeight="446.0" fitWidth="438.0" layoutX="95.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Img/backgroundlogin.png" />
+         </image>
+      </ImageView>
+      <VBox layoutX="557.0" layoutY="81.0" prefHeight="97.0" prefWidth="295.0">
+         <children>
+            <Label prefHeight="49.0" prefWidth="226.0" text="Login" textFill="#11468f">
+               <font>
+                  <Font name="Verdana" size="34.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="47.0" prefWidth="405.0">
+               <children>
+                  <Label layoutX="3.0" layoutY="-13.0" prefHeight="31.0" prefWidth="166.0" text="Don't have an account ?" textFill="#11468f">
+                     <font>
+                        <Font name="Verdana" size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="3.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label layoutX="3.0" layoutY="-13.0" onMouseClicked="#Account" prefHeight="10.0" prefWidth="102.0" text="Create Now" textFill="#da1212">
+                     <font>
+                        <Font name="Verdana" size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox layoutX="547.0" layoutY="185.0" prefHeight="218.0" prefWidth="274.0">
+         <children>
+            <Label prefHeight="10.0" prefWidth="102.0" text="Email" textFill="#041562">
+               <font>
+                  <Font name="Verdana" size="13.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets bottom="3.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="mail" promptText="Example@Gmail.com">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="20.0" right="20.0" />
+               </VBox.margin>
+            </TextField>
+            <Label prefHeight="10.0" prefWidth="102.0" text="Password" textFill="#041562">
+               <font>
+                  <Font name="Verdana" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="3.0" left="20.0" right="20.0" top="-10.0" />
+               </VBox.margin>
+            </Label>
+            <PasswordField fx:id="pwd" promptText="15ab_85">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </VBox.margin>
+            </PasswordField>
+            <Button fx:id="btnlogin" mnemonicParsing="false" onAction="#Login" prefHeight="26.0" prefWidth="225.0" style="-fx-background-color: #041562; -fx-background-radius: 5;" text="Login" textFill="#fafafa">
+               <VBox.margin>
+                  <Insets left="50.0" right="50.0" top="30.0" />
+               </VBox.margin>
+            </Button>
+            <Label text="Forget password ?" textAlignment="CENTER" textFill="#11468f">
+               <VBox.margin>
+                  <Insets left="50.0" top="5.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
