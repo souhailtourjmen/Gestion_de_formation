@@ -24,4 +24,7 @@ public class Domaine {
         this.id = id;
         this.libelle = libelle;
     }
+
+    public Domaine() {
+    }
 }

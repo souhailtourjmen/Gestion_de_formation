@@ -5,7 +5,6 @@ public class Participant {
     private String nom ;
     private String prenom ;
     private Profil profil;
-    private Pays pays;
     private String email ;
     private String tel ;
 
@@ -41,13 +40,9 @@ public class Participant {
         this.profil = profil;
     }
 
-    public Pays getPays() {
-        return pays;
-    }
 
-    public void setPays(Pays pays) {
-        this.pays = pays;
-    }
+
+
 
     public String getEmail() {
         return email;
@@ -65,13 +60,16 @@ public class Participant {
         this.tel = tel;
     }
 
-    public Participant(int id, String nom, String prenom, Profil profil,Pays pays, String email, String tel) {
+    public Participant(int id, String nom, String prenom, Profil profil, String email, String tel) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
         this.profil = profil;
-        this.pays = pays;
+
         this.email = email;
         this.tel = tel;
+    }
+
+    public Participant() {
     }
 }

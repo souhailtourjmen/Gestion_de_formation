@@ -47,18 +47,20 @@ public class Login {
 
     }
 
+
     @FXML
     void Login(ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
         DbConnection conn = new DbConnection();
 
         String role="";
-        if((check.checkzone(mail.getText())==0)&(check.checkzone(pwd.getText())==0)){
+        if(true){
             String req="SELECT `role` FROM `user` WHERE email='"+mail.getText()+"'and password='"+pwd.getText()+"'";
             ResultSet rs = conn.select(req);
             while (rs.next()){
                 role = rs.getString("role");
             }
             if(role.equals("U")){
+                User.account=mail.getText();
                 FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Views/UserDashbord.fxml"));
                 Scene scene = new Scene(fxmlLoader.load());
 
@@ -86,6 +88,7 @@ public class Login {
             else{
                 //alert
             }
+
         }
         else{
             //alert
