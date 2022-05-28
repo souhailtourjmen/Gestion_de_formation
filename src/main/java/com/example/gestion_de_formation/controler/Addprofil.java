@@ -68,32 +68,34 @@ public class Addprofil implements Initializable {
 
     public void setdata() throws SQLException, ClassNotFoundException {
         DbConnection conn = new DbConnection();
-        String req="SELECT * FROM `particpant` WHERE email='"+User.account+"'";
-        System.out.println(User.account);
+        String req="SELECT `idparticpant`, `nom`, `prenom`, `email`, `tel`, `pwd`, `idprofil` FROM `particpant` WHERE email='"+User.account+"'";
+       
         ResultSet rs=conn.select(req);
         while (rs.next()){
             particpant.setId(parseInt(rs.getString("idparticpant")));
-            particpant.setNom( rs.getString("`nom"));
+            particpant.setNom( rs.getString("nom"));
             particpant.setPrenom(rs.getString("prenom"));
             particpant.setEmail(rs.getString("email"));
             particpant.setTel(rs.getString("tel"));
         }
+        System.out.println(particpant.getNom());
         nom.setText(particpant.getNom());
         prenom.setText(particpant.getPrenom());
         tel.setText(particpant.getTel());
     }
     public void update() throws SQLException, ClassNotFoundException {
         String Profil= profil.getSelectionModel().getSelectedItem().toString();
-        String req="UPDATE `particpant` SET `nom`='"+nom.getText()+"',`prenom`='"+prenom.getText()+"',`tel`='"+tel.getText()+"',`idprofil'="+cherche(Profil)+" WHERE idparticpant= "+particpant.getId();
-
+        String req="UPDATE `particpant` SET `nom` = '"+particpant.getNom()+"', `prenom` = '"+particpant.getPrenom()+"',`tel` = '"+particpant.getTel()+"' ,`idprofil` = '"+cherche(Profil)+"' WHERE `particpant`.`idparticpant` = "+particpant.getId()+" AND `particpant`.`email` = '"+User.account+"';";
+        DbConnection conn = new DbConnection();
+        conn.insert(req);
     }
     public int cherche(String profil) throws SQLException, ClassNotFoundException {
-        String req1="SELECT `Idprofil`, `labelle` FROM `profil` WHERE  Libelle='"+profil+"'";
+        String req1="SELECT `Idprofil`, `labelle` FROM `profil` WHERE  Labelle='"+profil+"'";
         int id = 0;
         DbConnection conn = new DbConnection();
         ResultSet rs =conn.select(req1);
         while (rs.next()){
-            id=rs.getInt("idDomaine");
+            id=rs.getInt("idprofil");
 
         }
         return id;
