@@ -14,6 +14,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -35,7 +36,7 @@ public class Addprofil implements Initializable {
 
     @FXML
     private TextField tel;
-
+    
     @FXML
     void Addprofil(ActionEvent event) throws SQLException, ClassNotFoundException, IOException {
         update();
@@ -43,7 +44,7 @@ public class Addprofil implements Initializable {
         show("UserDashbord");
     }
     ObservableList dataprofil = FXCollections.observableArrayList();
-    Participant particpant = new Participant();
+    
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -66,28 +67,20 @@ public class Addprofil implements Initializable {
         profil.setItems(dataprofil);
     }
 
-    public void setdata() throws SQLException, ClassNotFoundException {
-        DbConnection conn = new DbConnection();
-        String req="SELECT `idparticpant`, `nom`, `prenom`, `email`, `tel`, `pwd`, `idprofil` FROM `particpant` WHERE email='"+User.account+"'";
-       
-        ResultSet rs=conn.select(req);
-        while (rs.next()){
-            particpant.setId(parseInt(rs.getString("idparticpant")));
-            particpant.setNom( rs.getString("nom"));
-            particpant.setPrenom(rs.getString("prenom"));
-            particpant.setEmail(rs.getString("email"));
-            particpant.setTel(rs.getString("tel"));
-        }
-        System.out.println(particpant.getNom());
-        nom.setText(particpant.getNom());
-        prenom.setText(particpant.getPrenom());
-        tel.setText(particpant.getTel());
+    public void setdata()  {
+        nom.setText(User.particpant.getNom());
+        prenom.setText(User.particpant.getPrenom());
+        tel.setText(User.particpant.getTel());
     }
     public void update() throws SQLException, ClassNotFoundException {
         String Profil= profil.getSelectionModel().getSelectedItem().toString();
-        String req="UPDATE `particpant` SET `nom` = '"+particpant.getNom()+"', `prenom` = '"+particpant.getPrenom()+"',`tel` = '"+particpant.getTel()+"' ,`idprofil` = '"+cherche(Profil)+"' WHERE `particpant`.`idparticpant` = "+particpant.getId()+" AND `particpant`.`email` = '"+User.account+"';";
+        if(tel.getText().length()<9){
+        String req="UPDATE `particpant` SET `nom` = '"+nom.getText()+"', `prenom` = '"+prenom.getText()+"',`tel` = '"+tel.getText()+"' ,`idprofil` = '"+cherche(Profil)+"' WHERE `particpant`.`idparticpant` = "+User.particpant.getId()+" AND `particpant`.`email` = '"+User.account+"';";
         DbConnection conn = new DbConnection();
         conn.insert(req);
+        }else{
+            //alert
+        }
     }
     public int cherche(String profil) throws SQLException, ClassNotFoundException {
         String req1="SELECT `Idprofil`, `labelle` FROM `profil` WHERE  Labelle='"+profil+"'";
@@ -114,5 +107,5 @@ public class Addprofil implements Initializable {
         Login.stage.setScene(scene);
         Login.stage.show();
     }
-
-}
+    
+   }
