@@ -53,7 +53,7 @@ public class Login {
         DbConnection conn = new DbConnection();
 
         String role="";
-        if(true){
+        if(check.checkchamp(mail.getText())!=-1){
             String req="SELECT `role` FROM `user` WHERE email='"+mail.getText()+"'and password='"+pwd.getText()+"'";
             ResultSet rs = conn.select(req);
             while (rs.next()){
@@ -86,12 +86,12 @@ public class Login {
                 stage.show();
             }
             else{
-                //alert
+                Check.showAlerterreur("mail introuvable");
             }
 
         }
         else{
-            //alert
+            Check.showAlerterreur("mail est vide");
              }
 
     }

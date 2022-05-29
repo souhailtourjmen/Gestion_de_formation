@@ -7,7 +7,15 @@ public class Viewsession {
     private String Nomd;
     private Date datedeb;
     private Date datefin;
+    private String db;
+    private String df;
 
+    public void setDb(String db) {
+        this.db = db;
+    }
+    public void setDf(String df) {
+        this.df = df;
+    }
     public void setNomf(String nomf) {
         Nomf = nomf;
     }
@@ -20,9 +28,6 @@ public class Viewsession {
     public void setDatefin(Date datefin) {
         this.datefin = datefin;
     }
-    public String getNomf() {
-        return Nomf;
-    }
     public String getNomd() {
         return Nomd;
     }
@@ -32,8 +37,17 @@ public class Viewsession {
     public Date getDatefin() {
         return datefin;
     }
+    public String getDb() {
+        return db;
+    }
+    public String getDf() {
+        return df;
+    }
     public Viewsession(){
         
     }
 
+    public String getNomf() {
+        return this.Nomf;
+    }
 }

@@ -87,7 +87,7 @@ public class Addsession implements Initializable {
 
             conn.insert(req);
         }else{
-            //alert
+            Check.showAlerterreur("Nombre est incorect");
         }
     }
 

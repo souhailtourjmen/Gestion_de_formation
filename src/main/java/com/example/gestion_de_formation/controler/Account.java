@@ -79,8 +79,8 @@ public class Account {
                             conn.insert(req1);
 
                         }else{
-                            //alert compte exist
-                            System.out.println(conn.checkaccount(champ[2]));
+                            Check.showAlerterreur("Compte exist");
+                          
                         }
                     }catch(Exception e){
 
@@ -98,8 +98,8 @@ public class Account {
                             conn.insert(req1);
 
                         }else{
-                            //alert compte exist
-                            System.out.println("hello");
+                            Check.showAlerterreur("compte !");
+                           
                         }
                     }catch(Exception e){
 
@@ -108,7 +108,7 @@ public class Account {
                 }
 
             }else{
-                //alert error pwd
+                Check.showAlerterreur("password !");
             }
 
 

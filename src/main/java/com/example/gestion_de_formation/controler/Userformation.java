@@ -4,6 +4,8 @@ import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+
+import com.example.gestion_de_formation.Application;
 import com.example.gestion_de_formation.DB.DbConnection;
 import com.example.gestion_de_formation.modules.Organisation.Participant;
 
@@ -12,11 +14,18 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
+
 import static java.lang.Integer.parseInt;
+
+import java.io.IOException;
 
 public class Userformation implements Initializable {
 
@@ -32,8 +41,9 @@ public class Userformation implements Initializable {
     Participant particpant = new Participant();
 
     @FXML
-    void Addformation(ActionEvent event) throws ClassNotFoundException, SQLException {
-     
+    void Addformation(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
+        insertdat();
+        show();
     }
     
 
@@ -84,12 +94,25 @@ public class Userformation implements Initializable {
         }
      
     }
-   public void insertdat(){
+    public void insertdat() throws ClassNotFoundException, SQLException{
     DbConnection conn = new DbConnection();
     String sql = "INSERT INTO `section`(`idsession`, `idparticipant`) VALUES ("+idsession+","+User.particpant.getId()+")";
+    conn.insert(sql);
    }
     
-    
+     public void show() throws IOException {
+         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Views/UserDashbord.fxml"));
+         Scene scene = new Scene(fxmlLoader.load());
+         Stage stage = new Stage();
+         try {
+             stage.getIcons().add(new Image(this.getClass().getResource("Views/Img/Logo.png").toString()));
+         }catch (Exception e) {
+
+         }
+         stage.setTitle("Welcome !");
+         stage.setScene(scene);
+         stage.show();
+    }
                      
    
 }

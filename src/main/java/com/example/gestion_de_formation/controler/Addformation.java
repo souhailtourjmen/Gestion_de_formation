@@ -90,7 +90,7 @@ public class Addformation implements Initializable {
         int ch=conn.checkaccount(req2);
 
         if(ch==1) {
-            if ((check.cheknumber(nbrj.getText()) == 0) & (check.cheknumber(nbrp.getText()) == 0) & (check.checkzone(Nom.getText()) > 0)) {
+            if ((check.cheknumber(nbrj.getText())== 0) & (check.cheknumber(nbrp.getText()) == 0) ) {
                 String req1 = "SELECT `idDomaine`, `Libelle` FROM `domaine` WHERE Libelle='" + domain + "'";
                 ResultSet rs = conn.select(req1);
                 while (rs.next()) {
@@ -100,10 +100,10 @@ public class Addformation implements Initializable {
                 String req = "INSERT INTO `formation`(`intitule`, `domaine`, `nbjour`, `date`, `idformateur`, `nbparticipant`) VALUES ('"+intitule+"',"+id+","+Nbrj+",'"+Date+"',"+Idformateur+","+Nbrp+")";
                 int v=conn.insert(req);
             } else {
-                //alert
+                Check.showAlerterreur(" id formateur pas trouver ="+Idformateur);
             }
         }else{
-            //alert compte
+            Check.showAlerterreur("compte est incorect");
         }
     }
 
@@ -121,5 +121,6 @@ public class Addformation implements Initializable {
         Login.stage.setScene(scene);
         Login.stage.show();
     }
+
 
 }

@@ -2,6 +2,9 @@ package com.example.gestion_de_formation.check;
 
 import com.example.gestion_de_formation.DB.DbConnection;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 import java.sql.SQLException;
 import java.util.Objects;
 
@@ -10,7 +13,7 @@ public class Check {
     }
 
     public  int checkchamp(String ch){
-        if(ch.equals("")){
+        if(ch==null){
             return -1;
         }
         return 0;
@@ -66,6 +69,13 @@ public class Check {
 
         return result;
     }
+    public static void showAlerterreur(String ch) {
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Test Connection");
+		alert.setHeaderText("Results:");
+		alert.setContentText(ch);
 
+		alert.showAndWait();
+	}
 
 }

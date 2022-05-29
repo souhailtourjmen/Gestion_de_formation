@@ -11,7 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
-public class Item implements Initializable{
+public class Item {
 
     @FXML
     private Button delete;
@@ -27,20 +27,23 @@ public class Item implements Initializable{
 
     @FXML
     private Label lab4;
-    static Viewsession views ;
+
 
     @FXML
     void Delete(ActionEvent event) {
 
     }
 
-    @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
-            lab1.setText(views.getNomf());
-            lab2.setText(views.getNomd());
-            lab3.setText(String.valueOf(views.getDatedeb()));
-            lab4.setText(String.valueOf(views.getDatefin()));
-        
+
+
+    public  void setdata(Viewsession views){
+        lab1.setText(views.getNomf());
+        lab2.setText(views.getNomd());
+        lab3.setText(String.valueOf(views.getDatedeb()));
+        lab4.setText(String.valueOf(views.getDatefin()));
+        System.out.println(views.getNomf());
     }
 
+
 }
+

@@ -2,6 +2,7 @@ package com.example.gestion_de_formation.controler;
 
 import com.example.gestion_de_formation.Application;
 import com.example.gestion_de_formation.DB.DbConnection;
+import com.example.gestion_de_formation.check.Check;
 import com.example.gestion_de_formation.modules.Organisation.Participant;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -79,7 +80,7 @@ public class Addprofil implements Initializable {
         DbConnection conn = new DbConnection();
         conn.insert(req);
         }else{
-            //alert
+            Check.showAlerterreur("tel incorrect");
         }
     }
     public int cherche(String profil) throws SQLException, ClassNotFoundException {

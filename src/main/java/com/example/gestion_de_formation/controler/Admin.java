@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
 
 import static com.example.gestion_de_formation.controler.Login.stage;
 
-public class Admin {
+public class Admin  implements Initializable{
 
     @FXML
     private Label Account;
@@ -127,6 +127,13 @@ public class Admin {
         Login.stage.setScene(scene);
         Login.stage.show();
     }
+
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        
+        
+    }
+    
 
 
 }
