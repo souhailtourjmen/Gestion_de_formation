@@ -107,6 +107,7 @@ public class User implements Initializable {
 
     public void settable() throws ClassNotFoundException, SQLException{
         setdata();
+       
         nomf.setCellValueFactory(new PropertyValueFactory<Viewsession,String>("Nomf"));
         nomd.setCellValueFactory(new PropertyValueFactory<Viewsession,String>("Nomd"));
         dab.setCellValueFactory(new PropertyValueFactory<Viewsession,String>("db"));
