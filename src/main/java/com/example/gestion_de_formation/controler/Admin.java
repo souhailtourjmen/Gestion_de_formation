@@ -85,9 +85,10 @@ public class Admin  implements Initializable{
     private TableColumn<Viewadmin, String> Item5;
 
     ObservableList<Viewadmin> data = FXCollections.observableArrayList();
-    // ObservableList<Formation> formation = FXCollections.observableArrayList();
-    // ObservableList<Formateur> formateur = FXCollections.observableArrayList();
-    // ObservableList<Session> session = FXCollections.observableArrayList();
+  
+    
+    
+   
 
     @FXML
     void Addformateur(ActionEvent event) throws IOException {
@@ -101,28 +102,25 @@ public class Admin  implements Initializable{
     }
 
     @FXML
-    void Demande(ActionEvent event) throws IOException {
-
+    void Formateur(ActionEvent event) throws IOException {
+        show("Tableformateur","Formateur");
     }
 
     @FXML
-    void Formateur(ActionEvent event) {
-
+    void Formation(ActionEvent event) throws IOException {
+        show("Tableformation","Formations");
     }
 
     @FXML
-    void Formation(ActionEvent event) {
-
+    void Overview(ActionEvent event) throws IOException {
+        
+        show("Admin","Home");
+       
     }
 
     @FXML
-    void Overview(ActionEvent event) {
-
-    }
-
-    @FXML
-    void Particpants(ActionEvent event) {
-
+    void Particpants(ActionEvent event) throws IOException {
+        show("TableParicpant","Particpant");
     }
 
     @FXML
@@ -148,30 +146,27 @@ public class Admin  implements Initializable{
         Login.stage.setScene(scene);
         Login.stage.show();
     }
-        String reqFormation="SELECT `formation`.`id`, `formation`.`intitule`, `formation`.`domaine`, `session`.`debut`, `formateur`.`prenom`FROM `formation`LEFT JOIN `session` ON `session`.`idformation` = `formation`.`id` LEFT JOIN `formateur` ON `formation`.`idformateur` = `formateur`.`id`;";
-        String reqFormateur="SELECT `formateur`.`id`, `formateur`.`nom`, `formateur`.`prenom`, `formateur`.`email`, `domaine`.`Libelle`FROM `formateur` LEFT JOIN `domaine` ON `formateur`.`domaine` = `domaine`.`idDomaine`;";
-        String reqparticpant="SELECT `particpant`.`nom`, `particpant`.`prenom`, `profil`.`labelle`, `section`.`idsession`, `session`.`idformation`, `formation`.`intitule`, `domaine`.`Libelle`FROM `particpant` LEFT JOIN `profil` ON `particpant`.`idprofil` = `profil`.`Idprofil` LEFT JOIN `section` ON `section`.`idparticipant` = `particpant`.`idparticpant` LEFT JOIN `session` ON `section`.`idsession` = `session`.`Idsession` LEFT JOIN `formation` ON `session`.`idformation` = `formation`.`id`  LEFT JOIN `domaine` ON `formation`.`domaine` = `domaine`.`idDomaine`;";
-    
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        String req = "SELECT `formation`.`intitule`, `formateur`.`prenom`, `session`.`debut`, `session`.`fin`, `domaine`.`Libelle` FROM `formation` LEFT JOIN `formateur` ON `formation`.`idformateur` = `formateur`.`id` LEFT JOIN `session` ON `session`.`idformation` = `formation`.`id` LEFT JOIN `domaine` ON `formateur`.`domaine` = `domaine`.`idDomaine` WHERE `session`.`debut` IS NOT NULL ;";
+       
         try {
-            setdata(req);
+            setdata();
         } catch (ClassNotFoundException | SQLException e) {
             
             e.printStackTrace();
         }
         try {
-            settable("intitule","Prenom","Debut Session","Fin Session","Domaine");
+            settable();
         } catch (ClassNotFoundException | SQLException e) {
             
             e.printStackTrace();
         }
 
     }
-    public void setdata(String req) throws ClassNotFoundException, SQLException{
+    public void setdata() throws ClassNotFoundException, SQLException{
         DbConnection conn = new DbConnection();
             data.clear();
+            String req = "SELECT `formation`.`intitule`, `formateur`.`prenom`, `session`.`debut`, `session`.`fin`, `domaine`.`Libelle` FROM `formation` LEFT JOIN `formateur` ON `formation`.`idformateur` = `formateur`.`id` LEFT JOIN `session` ON `session`.`idformation` = `formation`.`id` LEFT JOIN `domaine` ON `formateur`.`domaine` = `domaine`.`idDomaine` WHERE `session`.`debut` IS NOT NULL ;";
             ResultSet rs=conn.select(req);
             while (rs.next()){
                 Viewadmin views = new Viewadmin();
@@ -184,23 +179,17 @@ public class Admin  implements Initializable{
                 table.setItems(data);
             }
     }
-    public void settable(String cl1, String cl2, String cl3, String cl4, String cl5) throws ClassNotFoundException, SQLException{
+    public void settable() throws ClassNotFoundException, SQLException{
         
-        Item1.setText(cl1);
-        Item2.setText(cl2);
-        Item3.setText(cl3);
-        Item4.setText(cl4);
-        Item5.setText(cl5);
-
         Item1.setCellValueFactory(new PropertyValueFactory<Viewadmin,String>("item1"));
         Item2.setCellValueFactory(new PropertyValueFactory<Viewadmin,String>("item2"));
         Item3.setCellValueFactory(new PropertyValueFactory<Viewadmin,String>("item3"));
         Item4.setCellValueFactory(new PropertyValueFactory<Viewadmin,String>("item4"));
-        Item5.setCellValueFactory(new PropertyValueFactory<Viewadmin,String>("item4"));
+        Item5.setCellValueFactory(new PropertyValueFactory<Viewadmin,String>("item5"));
         table.getColumns().addAll(Item1,Item2,Item3,Item4,Item5);
  
     }
 
-
+    
 
 }

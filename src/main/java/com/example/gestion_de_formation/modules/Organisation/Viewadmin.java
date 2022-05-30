@@ -6,6 +6,7 @@ public class Viewadmin {
     private String item3;
     private String item4;
     private String item5;
+    private String item6;
 
     public String getItem1() {
         return item1;
@@ -43,10 +44,16 @@ public class Viewadmin {
         return item5;
     }
 
+
     public void setItem5(String item5) {
         this.item5 = item5;
     }
-
+    public void setItem6(String item6) {
+        this.item6 = item6;
+    }
+    public String getItem6() {
+        return item6;
+    }
     public Viewadmin() {
     }
 }

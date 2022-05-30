@@ -82,11 +82,11 @@
                            <children>
                               <TableView fx:id="table" layoutX="11.0" layoutY="2.0" prefHeight="450.0" prefWidth="698.0">
                                 <columns>
-                                  <TableColumn fx:id="Item1" prefWidth="123.20001792907715" text="C1" />
-                                  <TableColumn fx:id="Item2" prefWidth="164.79998779296875" text="C2" />
-                                    <TableColumn fx:id="Item3" minWidth="7.20001220703125" prefWidth="111.20004272460938" text="C3" />
-                                    <TableColumn fx:id="Item4" prefWidth="105.60000610351562" text="C4" />
-                                    <TableColumn fx:id="Item5" prefWidth="100.7999267578125" text="C5" />
+                                  <TableColumn fx:id="Item1" prefWidth="123.20001792907715" text="Nom Formation" />
+                                  <TableColumn fx:id="Item2" prefWidth="164.79998779296875" text="Prenom formateur" />
+                                    <TableColumn fx:id="Item3" minWidth="7.20001220703125" prefWidth="133.60006713867188" text=" Debut de formation " />
+                                    <TableColumn fx:id="Item4" prefWidth="110.39999389648438" text="Fin de formation" />
+                                    <TableColumn fx:id="Item5" prefWidth="162.39990234375" text="Domaine" />
                                 </columns>
                               </TableView>
                            </children>
