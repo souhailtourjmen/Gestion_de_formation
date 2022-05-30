@@ -82,11 +82,13 @@
                            <children>
                               <TableView fx:id="table" layoutX="11.0" layoutY="2.0" prefHeight="450.0" prefWidth="698.0">
                                 <columns>
-                                  <TableColumn fx:id="Item1" prefWidth="123.20001792907715" text="Nom Formation" />
-                                  <TableColumn fx:id="Item2" prefWidth="164.79998779296875" text="Prenom formateur" />
-                                    <TableColumn fx:id="Item3" minWidth="7.20001220703125" prefWidth="133.60006713867188" text=" Debut de formation " />
-                                    <TableColumn fx:id="Item4" prefWidth="110.39999389648438" text="Fin de formation" />
-                                    <TableColumn fx:id="Item5" prefWidth="162.39990234375" text="Domaine" />
+                                    <TableColumn fx:id="IDD" prefWidth="50.40002250671387" text="ID" />
+                                  <TableColumn fx:id="Item1" prefWidth="137.60004425048828" text="Nom Formation" />
+                                  <TableColumn fx:id="Item2" prefWidth="116.79995727539062" text="Prenom formateur" />
+                                    <TableColumn fx:id="Item3" minWidth="7.20001220703125" prefWidth="108.800048828125" text=" Debut de formation " />
+                                    <TableColumn fx:id="Item4" prefWidth="98.39996337890625" text="Fin de formation" />
+                                    <TableColumn fx:id="Item5" maxWidth="107.99990844726562" prefWidth="92.80001831054688" text="Domaine" />
+                                    <TableColumn fx:id="btn" maxWidth="76.0" minWidth="0.0" prefWidth="76.0" />
                                 </columns>
                               </TableView>
                            </children>

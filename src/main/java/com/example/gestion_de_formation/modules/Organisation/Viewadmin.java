@@ -1,6 +1,7 @@
 package com.example.gestion_de_formation.modules.Organisation;
 
 public class Viewadmin {
+    private int id;
     private String item1;
     private String item2;
     private String item3;
@@ -8,6 +9,12 @@ public class Viewadmin {
     private String item5;
     private String item6;
 
+    public void setId(int id) {
+        this.id = id;
+    }
+    public int getId() {
+        return id;
+    }
     public String getItem1() {
         return item1;
     }

@@ -1,0 +1,7 @@
+.toggle-button {
+    -fx-background-color: rgb(225, 55, 17);
+}
+
+.toggle-button:selected {
+    -fx-background-color: yellow;
+}
