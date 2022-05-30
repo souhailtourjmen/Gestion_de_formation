@@ -73,6 +73,7 @@ public class Login {
                 stage.setScene(scene);
                 stage.show();
             }else if (role.equals("A")||(role.equals("S"))){
+                Admin.account=mail.getText();
                 FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Views/Admin.fxml"));
                 Scene scene = new Scene(fxmlLoader.load());
 

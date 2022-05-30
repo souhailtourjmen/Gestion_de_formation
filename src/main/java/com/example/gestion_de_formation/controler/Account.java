@@ -85,6 +85,7 @@ public class Account {
                     }catch(Exception e){
 
                     }
+                    User.account=mail.getText();
                     show("UserDashbord");
 
                 }else{
@@ -104,6 +105,7 @@ public class Account {
                     }catch(Exception e){
 
                     }
+                    Admin.account=mail.getText();
                     show("Admin");
                 }
 

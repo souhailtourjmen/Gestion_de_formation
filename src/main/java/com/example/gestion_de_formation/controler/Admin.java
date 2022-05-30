@@ -2,6 +2,7 @@ package com.example.gestion_de_formation.controler;
 
 import com.example.gestion_de_formation.Application;
 import com.example.gestion_de_formation.DB.DbConnection;
+import com.example.gestion_de_formation.check.Check;
 import com.example.gestion_de_formation.modules.Organisation.Formateur;
 import com.example.gestion_de_formation.modules.Organisation.Formation;
 import com.example.gestion_de_formation.modules.Organisation.Participant;
@@ -85,15 +86,12 @@ public class Admin  implements Initializable{
     private TableColumn<Viewadmin, String> Item5;
 
     ObservableList<Viewadmin> data = FXCollections.observableArrayList();
-  
-    
-    
-   
 
+    public static String account ;
     @FXML
     void Addformateur(ActionEvent event) throws IOException {
         show("Addformateur","Addformateur");
-
+        
     }
 
     @FXML
@@ -102,25 +100,66 @@ public class Admin  implements Initializable{
     }
 
     @FXML
-    void Formateur(ActionEvent event) throws IOException {
-        show("Tableformateur","Formateur");
+    void Formateur(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
+        // show("Tableformateur","Formateur");
+        Titre.setText("List Formateur");
+        changenomcolumns("Id","Nom","Prenom","Email","Formation");
+        data.clear();
+        Check.Sql="SELECT `formateur`.`id`, `formateur`.`nom`, `formateur`.`prenom`, `formateur`.`email`, `domaine`.`Libelle`FROM `formateur` LEFT JOIN `domaine` ON `formateur`.`domaine` = `domaine`.`idDomaine`;";
+        try {
+            setdata(Check.Sql);
+        } catch (ClassNotFoundException | SQLException e) {
+            
+            e.printStackTrace();
+        }
     }
 
     @FXML
     void Formation(ActionEvent event) throws IOException {
-        show("Tableformation","Formations");
+        // show("Tableformation","Formations");
+        Titre.setText("List Formation");
+        changenomcolumns("Id","Formation","Domaine","Debut","Prenom Formateur");
+        data.clear();
+        Check.Sql="SELECT `formation`.`id`, `formation`.`intitule`, `formation`.`domaine`, `session`.`debut`, `formateur`.`id`, `formateur`.`prenom` FROM `formation`   LEFT JOIN `session` ON `session`.`idformation` = `formation`.`id`  LEFT JOIN `formateur` ON `formation`.`idformateur` = `formateur`.`id` ORDER by `session`.`debut` DESC ;";
+        try {
+            setdata(Check.Sql);
+        } catch (ClassNotFoundException | SQLException e) {
+            
+            e.printStackTrace();
+        }
+        
+        
+
     }
 
     @FXML
     void Overview(ActionEvent event) throws IOException {
-        
-        show("Admin","Home");
+        Titre.setText("Overview");
+        data.clear();
+        Check.Sql="SELECT `formation`.`intitule`, `formateur`.`prenom`, `session`.`debut`, `session`.`fin`, `domaine`.`Libelle` FROM `formation` LEFT JOIN `formateur` ON `formation`.`idformateur` = `formateur`.`id` LEFT JOIN `session` ON `session`.`idformation` = `formation`.`id` LEFT JOIN `domaine` ON `formateur`.`domaine` = `domaine`.`idDomaine` WHERE `session`.`debut` IS NOT NULL ;";
+        changenomcolumns("Formation","Prenom formateur","Debut de Formation","Fin de Formation","Domaine");
+        try {
+            setdata(Check.Sql);
+        } catch (ClassNotFoundException | SQLException e) {
+            
+            e.printStackTrace();
+        }
        
     }
 
     @FXML
     void Particpants(ActionEvent event) throws IOException {
-        show("TableParicpant","Particpant");
+        // show("TableParicpant","Particpant");
+        Titre.setText("List Overview");
+        changenomcolumns("Nom","Prenom","Profil","Formation","Domaine");
+        data.clear();
+        Check.Sql="SELECT `particpant`.`nom`, `particpant`.`prenom`, `profil`.`labelle`, `section`.`idsession`, `session`.`idformation`, `formation`.`intitule`, `domaine`.`Libelle` FROM `particpant` LEFT JOIN `profil` ON `particpant`.`idprofil` = `profil`.`Idprofil` LEFT JOIN `section` ON `section`.`idparticipant` = `particpant`.`idparticpant` LEFT JOIN `session` ON `section`.`idsession` = `session`.`Idsession` LEFT JOIN `formation` ON `session`.`idformation` = `formation`.`id`  LEFT JOIN `domaine` ON `formation`.`domaine` = `domaine`.`idDomaine`;";
+        try {
+            setdata(Check.Sql);
+        } catch (ClassNotFoundException | SQLException e) {
+            
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -136,21 +175,21 @@ public class Admin  implements Initializable{
         String path="Views/"+page+".fxml";
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource(path));
         Scene scene = new Scene(fxmlLoader.load());
-
+        Stage stage = new Stage();
         try {
-            Login.stage.getIcons().add(new Image(this.getClass().getResource("Views/Img/Logo.png").toString()));
+            stage.getIcons().add(new Image(this.getClass().getResource("Views/Img/Logo.png").toString()));
         }catch (Exception e) {
 
         }
-        Login.stage.setTitle(title);
-        Login.stage.setScene(scene);
-        Login.stage.show();
+        stage.setTitle(title);
+        stage.setScene(scene);
+        stage.show();
     }
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-       
+        Account.setText(account);
         try {
-            setdata();
+            setdata(Check.Sql);
         } catch (ClassNotFoundException | SQLException e) {
             
             e.printStackTrace();
@@ -163,11 +202,10 @@ public class Admin  implements Initializable{
         }
 
     }
-    public void setdata() throws ClassNotFoundException, SQLException{
+    public void setdata(String sql) throws ClassNotFoundException, SQLException{
         DbConnection conn = new DbConnection();
             data.clear();
-            String req = "SELECT `formation`.`intitule`, `formateur`.`prenom`, `session`.`debut`, `session`.`fin`, `domaine`.`Libelle` FROM `formation` LEFT JOIN `formateur` ON `formation`.`idformateur` = `formateur`.`id` LEFT JOIN `session` ON `session`.`idformation` = `formation`.`id` LEFT JOIN `domaine` ON `formateur`.`domaine` = `domaine`.`idDomaine` WHERE `session`.`debut` IS NOT NULL ;";
-            ResultSet rs=conn.select(req);
+            ResultSet rs=conn.select(sql);
             while (rs.next()){
                 Viewadmin views = new Viewadmin();
                 views.setItem1(rs.getString(1));
@@ -190,6 +228,13 @@ public class Admin  implements Initializable{
  
     }
 
+    public void changenomcolumns(String item1, String item2, String item3, String item4, String item5){
+        Item1.setText(item1);
+        Item2.setText(item2);
+        Item3.setText(item3);
+        Item4.setText(item4);
+        Item5.setText(item5);
+    }
     
 
 }

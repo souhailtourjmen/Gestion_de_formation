@@ -12,7 +12,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="594.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestion_de_formation.controler.Addformation">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="354.0" layoutX="33.0" layoutY="71.0" stroke="BLACK" strokeType="INSIDE" width="515.0" />
-      <Label layoutX="204.0" layoutY="31.0" prefHeight="18.0" prefWidth="172.0" text="Addformateur" textFill="#11468f">
+      <Label layoutX="204.0" layoutY="31.0" prefHeight="18.0" prefWidth="172.0" text="Addformation" textFill="#11468f">
          <font>
             <Font size="27.0" />
          </font>
