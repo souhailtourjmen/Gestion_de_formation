@@ -119,15 +119,15 @@ public class User implements Initializable {
         String path="Views/"+page+".fxml";
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource(path));
         Scene scene = new Scene(fxmlLoader.load());
-
+        Stage stage = new Stage();
         try {
-            Login.stage.getIcons().add(new Image(this.getClass().getResource("Views/Img/Logo.png").toString()));
+            stage.getIcons().add(new Image(this.getClass().getResource("Views/Img/Logo.png").toString()));
         }catch (Exception e) {
 
         }
-        Login.stage.setTitle("Welcome !");
-        Login.stage.setScene(scene);
-        Login.stage.show();
+        stage.setTitle("Welcome !");
+        stage.setScene(scene);
+        stage.show();
     }
     public   void setuser() throws SQLException, ClassNotFoundException {
         DbConnection conn = new DbConnection();

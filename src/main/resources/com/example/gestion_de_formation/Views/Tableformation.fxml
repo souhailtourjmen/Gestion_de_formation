@@ -1,36 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="418.0" prefWidth="728.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestion_de_formation.controler.Tableformation">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="409.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestion_de_formation.controler.Tableformation">
    <effect>
       <DropShadow />
    </effect>
    <children>
-      <Button mnemonicParsing="false" onAction="#Retour" prefHeight="26.0" prefWidth="37.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 50;" textFill="WHITE" AnchorPane.bottomAnchor="387.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="691.0" AnchorPane.topAnchor="5.0">
-         <graphic>
-            <ImageView fitHeight="20.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Img/icons8-accueil-24%20(2).png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <TableView fx:id="table" prefHeight="400.0" prefWidth="726.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1.6000000000000227" AnchorPane.topAnchor="40.0">
-         <columns>
-            <TableColumn fx:id="Id" prefWidth="101.5999755859375" text="Id" />
-            <TableColumn fx:id="Formation" prefWidth="123.20001220703125" text="Formation" />
-            <TableColumn fx:id="Domaine" prefWidth="106.4000244140625" text="Domaine" />
-            <TableColumn fx:id="Debut" prefWidth="139.199951171875" text="Debut" />
-            <TableColumn fx:id="Idfor" prefWidth="125.60003662109375" text="Id Formateur" />
-            <TableColumn fx:id="PrF" prefWidth="125.60003662109375" text="Prenom formateur" />
-         </columns>
-      </TableView>
+      <AnchorPane layoutY="64.0" prefHeight="390.0" prefWidth="410.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="354.0" layoutX="7.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="390.0" />
+            <Label layoutX="69.0" layoutY="73.0" prefHeight="18.0" prefWidth="90.0" text="Intitule" />
+            <Label layoutX="69.0" layoutY="109.0" prefHeight="18.0" prefWidth="90.0" text="Nombre de jour" />
+            <Label layoutX="69.0" layoutY="142.0" prefHeight="18.0" prefWidth="90.0" text="Domaine" />
+            <Label layoutX="69.0" layoutY="178.0" prefHeight="18.0" prefWidth="90.0" text="Formateur" />
+            <Label layoutX="69.0" layoutY="211.0" prefHeight="18.0" prefWidth="90.0" text="Nbr Participant" />
+            <TextField fx:id="Nom" layoutX="189.0" layoutY="70.0" promptText="Nom" />
+            <TextField fx:id="nbrj" layoutX="189.0" layoutY="105.0" promptText="Nombre de jour" />
+            <TextField fx:id="idformateur" layoutX="189.0" layoutY="174.0" promptText="Id Formateur" />
+            <TextField fx:id="nbrp" layoutX="189.0" layoutY="207.0" promptText="Nombre Participant" />
+            <DatePicker fx:id="date" layoutX="190.0" layoutY="246.0" prefHeight="26.0" prefWidth="150.0" promptText="Date debut" />
+            <ComboBox fx:id="domaine" layoutX="188.0" layoutY="138.0" prefWidth="150.0" promptText="Domaine" />
+            <Button layoutX="130.0" layoutY="305.0" mnemonicParsing="false" onAction="#Addformation" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #4BB543;" text="Modify" />
+            <Label layoutX="69.0" layoutY="250.0" prefHeight="18.0" prefWidth="90.0" text="Date" />
+         </children>
+      </AnchorPane>
+      <Pane layoutX="1.0" layoutY="-1.0" prefHeight="58.0" prefWidth="410.0">
+         <children>
+            <Label layoutX="119.0" layoutY="10.0" prefHeight="18.0" prefWidth="172.0" text="Addformation" textFill="#11468f">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

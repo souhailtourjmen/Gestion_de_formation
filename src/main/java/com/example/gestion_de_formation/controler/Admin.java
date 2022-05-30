@@ -2,6 +2,7 @@ package com.example.gestion_de_formation.controler;
 
 import com.example.gestion_de_formation.Application;
 import com.example.gestion_de_formation.DB.DbConnection;
+
 import com.example.gestion_de_formation.check.Check;
 import com.example.gestion_de_formation.modules.Organisation.Formateur;
 import com.example.gestion_de_formation.modules.Organisation.Formation;
@@ -16,6 +17,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -101,6 +103,8 @@ public class Admin  implements Initializable{
     ObservableList<Viewadmin> data = FXCollections.observableArrayList();
 
     public static String account ;
+    String namepage="";
+    String Sqldel="DELETE FROM `session` WHERE `Idsession`=";
     @FXML
     void Addformateur(ActionEvent event) throws IOException {
         show("Addformateur","Addformateur");
@@ -114,7 +118,8 @@ public class Admin  implements Initializable{
 
     @FXML
     void Formateur(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
-        // show("Tableformateur","Formateur");
+         namepage="TaFR";
+        Sqldel="DELETE FROM `formateur` WHERE `id`=";
         Titre.setText("List Formateur");
         changenomcolumns("Id","Nom","Prenom","Email","Formation");
         data.clear();
@@ -129,7 +134,8 @@ public class Admin  implements Initializable{
 
     @FXML
     void Formation(ActionEvent event) throws IOException {
-        // show("Tableformation","Formations");
+         namepage="Tableformation";
+        Sqldel="DELETE FROM `formation` WHERE `id` =";
         Titre.setText("List Formation");
         changenomcolumns("Id","Formation","Domaine","Debut","Prenom Formateur");
         data.clear();
@@ -147,6 +153,7 @@ public class Admin  implements Initializable{
 
     @FXML
     void Overview(ActionEvent event) throws IOException {
+        Sqldel="DELETE FROM `session` WHERE `Idsession`=";
         Titre.setText("Overview");
         data.clear();
         Check.Sql="SELECT `formation`.`id`, `formation`.`intitule`, `formateur`.`prenom`, `session`.`debut`, `session`.`fin`, `domaine`.`Libelle` FROM `formation` LEFT JOIN `formateur` ON `formation`.`idformateur` = `formateur`.`id` LEFT JOIN `session` ON `session`.`idformation` = `formation`.`id` LEFT JOIN `domaine` ON `formateur`.`domaine` = `domaine`.`idDomaine` WHERE `session`.`debut` IS NOT NULL ;";
@@ -162,7 +169,8 @@ public class Admin  implements Initializable{
 
     @FXML
     void Particpants(ActionEvent event) throws IOException {
-        // show("TableParicpant","Particpant");
+         namepage="TableParicpant";
+        Sqldel="DELETE FROM `particpant` WHERE `idparticpant` =";
         Titre.setText("List Overview");
         changenomcolumns("Nom","Prenom","Profil","Formation","Domaine");
         data.clear();
@@ -273,7 +281,17 @@ public class Admin  implements Initializable{
 
                              }
                              else if(!Itemselcted.equals(String.valueOf(views.getId()))){
-                                System.out.println(views.getId());
+                                 DbConnection conn = new DbConnection();
+                                 try {
+                                    conn.delete(Sqldel+views.getId());
+                                } catch (ClassNotFoundException e) {
+                                    // TODO Auto-generated catch block
+                                    e.printStackTrace();
+                                } catch (SQLException e) {
+                                    // TODO Auto-generated catch block
+                                    e.printStackTrace();
+                                }
+
                                 Itemselcted=String.valueOf(views.getId());
                              }
                           
@@ -284,29 +302,25 @@ public class Admin  implements Initializable{
 
                         });
                         editIcon.setOnMouseClicked((MouseEvent event) -> {
-                            
-                            // student = studentsTable.getSelectionModel().getSelectedItem();
-                            // FXMLLoader loader = new FXMLLoader ();
-                            // loader.setLocation(getClass().getResource("/tableView/addStudent.fxml"));
-                            // try {
-                            //     loader.load();
-                            // } catch (IOException ex) {
-                            //     Logger.getLogger(TableViewController.class.getName()).log(Level.SEVERE, null, ex);
-                            // }
-                            
-                            // AddStudentController addStudentController = loader.getController();
-                            // addStudentController.setUpdate(true);
-                            // addStudentController.setTextField(student.getId(), student.getName(), 
-                            //         student.getBirth().toLocalDate(),student.getAdress(), student.getEmail());
-                            // Parent parent = loader.getRoot();
-                            // Stage stage = new Stage();
-                            // stage.setScene(new Scene(parent));
-                            // stage.initStyle(StageStyle.UTILITY);
-                            // stage.show();
-                            
-
+                            try {
+                            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Views/"+namepage+".fxml"));
+                            Scene scene;
+                            Stage stage = new Stage();
+                          
+                                scene = new Scene(fxmlLoader.load());
                            
-
+                            try {
+                                stage.getIcons().add(new Image(this.getClass().getResource("Views/Img/Logo.png").toString()));
+                            }catch (Exception e) {
+                    
+                            }
+                            stage.setTitle(namepage);
+                            stage.setScene(scene);
+                            stage.show();
+                            } catch (IOException e1) {
+                            // TODO Auto-generated catch block
+                            e1.printStackTrace();
+                            }
                         });
 
                         HBox managebtn = new HBox(editIcon, deleteIcon);

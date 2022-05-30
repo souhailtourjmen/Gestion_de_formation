@@ -97,4 +97,19 @@ public class DbConnection {
         return rs ;
 
     }
+    public int delete(String req  ) throws SQLException, ClassNotFoundException{
+        int rs=0;
+        try {
+            connexionDatabase();
+            statement = connection.createStatement();
+            rs=statement.executeUpdate(req);
+            closeconnexion();
+            statement.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rs ;
+
+    }
 }
