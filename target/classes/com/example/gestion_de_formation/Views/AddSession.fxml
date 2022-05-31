@@ -17,13 +17,13 @@
          </font>
       </Label>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="278.0" layoutX="128.0" layoutY="96.0" stroke="BLACK" strokeType="INSIDE" width="346.0" />
-      <Label layoutX="148.0" layoutY="141.0" prefHeight="18.0" prefWidth="70.0" text="Formation" AnchorPane.leftAnchor="148.0" AnchorPane.rightAnchor="381.6" />
-      <Label layoutX="148.0" layoutY="192.0" prefHeight="18.0" prefWidth="70.0" text="Date debut" AnchorPane.leftAnchor="148.0" AnchorPane.rightAnchor="381.6" />
-      <Label layoutX="148.0" layoutY="237.0" prefHeight="18.0" prefWidth="70.0" text="Date Fin" AnchorPane.leftAnchor="148.0" AnchorPane.rightAnchor="381.6" />
+      <Label layoutX="148.0" layoutY="141.0" prefHeight="18.0" prefWidth="70.0" text="Formation" textFill="#da1212" AnchorPane.leftAnchor="148.0" AnchorPane.rightAnchor="381.6" />
+      <Label layoutX="148.0" layoutY="192.0" prefHeight="18.0" prefWidth="70.0" text="Date debut" textFill="#da1212" AnchorPane.leftAnchor="148.0" AnchorPane.rightAnchor="381.6" />
+      <Label layoutX="148.0" layoutY="237.0" prefHeight="18.0" prefWidth="70.0" text="Date Fin" textFill="#da1212" AnchorPane.leftAnchor="148.0" AnchorPane.rightAnchor="381.6" />
       <DatePicker fx:id="debut" layoutX="282.0" layoutY="189.0" AnchorPane.leftAnchor="282.0" AnchorPane.rightAnchor="167.60000000000002" />
       <DatePicker fx:id="fin" layoutX="282.0" layoutY="234.0" AnchorPane.leftAnchor="282.0" AnchorPane.rightAnchor="167.60000000000002" />
       <Button layoutX="284.0" layoutY="311.0" mnemonicParsing="false" onAction="#Add" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #4BB543;" text="Add Session" textFill="WHITE" />
-      <Label layoutX="148.0" layoutY="279.0" prefHeight="18.0" prefWidth="110.0" text="Nombre Participant" />
+      <Label layoutX="148.0" layoutY="279.0" prefHeight="18.0" prefWidth="110.0" text="Nombre Participant" textFill="#da1212" />
       <TextField fx:id="nbrp" layoutX="285.0" layoutY="276.0" promptText=" 1 par defaut" />
       <ComboBox fx:id="formation" layoutX="285.0" layoutY="138.0" prefWidth="150.0" />
    </children>

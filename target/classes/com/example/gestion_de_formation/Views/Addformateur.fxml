@@ -16,11 +16,11 @@
             <Font size="27.0" />
          </font>
       </Label>
-      <Label layoutX="138.0" layoutY="125.0" prefHeight="18.0" prefWidth="90.0" text="Nom" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="352.6" />
-      <Label layoutX="138.0" layoutY="161.0" prefHeight="18.0" prefWidth="90.0" text="Prenom" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="352.6" />
-      <Label layoutX="138.0" layoutY="194.0" prefHeight="18.0" prefWidth="90.0" text="Domaine" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="352.6" />
-      <Label layoutX="138.0" layoutY="230.0" prefHeight="18.0" prefWidth="90.0" text="Email" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="352.6" />
-      <Label layoutX="138.0" layoutY="263.0" prefHeight="18.0" prefWidth="90.0" text="Tel" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="352.6" />
+      <Label layoutX="138.0" layoutY="125.0" prefHeight="18.0" prefWidth="90.0" text="Nom" textFill="#da1212" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="352.6" />
+      <Label layoutX="138.0" layoutY="161.0" prefHeight="18.0" prefWidth="90.0" text="Prenom" textFill="#da1212" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="352.6" />
+      <Label layoutX="138.0" layoutY="194.0" prefHeight="18.0" prefWidth="90.0" text="Domaine" textFill="#da1212" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="352.6" />
+      <Label layoutX="138.0" layoutY="230.0" prefHeight="18.0" prefWidth="90.0" text="Email" textFill="#da1212" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="352.6" />
+      <Label layoutX="138.0" layoutY="263.0" prefHeight="18.0" prefWidth="90.0" text="Tel" textFill="#da1212" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="352.6" />
       <TextField fx:id="Nom" layoutX="258.0" layoutY="122.0" promptText="Nom" AnchorPane.leftAnchor="258.0" AnchorPane.rightAnchor="186.39999999999998" />
       <TextField fx:id="prenom" layoutX="258.0" layoutY="157.0" promptText="Prenom" AnchorPane.leftAnchor="258.0" AnchorPane.rightAnchor="186.39999999999998" />
       <TextField fx:id="email" layoutX="258.0" layoutY="226.0" promptText="Exmple@gmail.com" AnchorPane.leftAnchor="258.0" AnchorPane.rightAnchor="186.39999999999998" />

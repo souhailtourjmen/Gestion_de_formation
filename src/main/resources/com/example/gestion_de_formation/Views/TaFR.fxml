@@ -18,15 +18,15 @@
       <AnchorPane layoutX="1.0" layoutY="57.0" prefHeight="390.0" prefWidth="410.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="355.0" layoutX="8.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="387.0" />
-            <Label layoutX="44.0" layoutY="93.0" prefHeight="18.0" prefWidth="90.0" text="Nom" />
-            <Label layoutX="44.0" layoutY="129.0" prefHeight="18.0" prefWidth="90.0" text="Prenom" />
-            <Label layoutX="44.0" layoutY="162.0" prefHeight="18.0" prefWidth="90.0" text="Domaine" />
-            <Label layoutX="44.0" layoutY="198.0" prefHeight="18.0" prefWidth="90.0" text="Email" />
-            <Label layoutX="44.0" layoutY="231.0" prefHeight="18.0" prefWidth="90.0" text="Tel" />
-            <TextField fx:id="Item1" layoutX="164.0" layoutY="90.0" promptText="Nom" />
-            <TextField fx:id="Item2" layoutX="164.0" layoutY="125.0" promptText="Prenom" />
-            <TextField fx:id="Item4" layoutX="164.0" layoutY="194.0" promptText="Exmple@gmail.com" />
-            <TextField fx:id="Item5" layoutX="164.0" layoutY="227.0" promptText="+216" />
+            <Label layoutX="44.0" layoutY="93.0" prefHeight="18.0" prefWidth="90.0" text="Nom" textFill="#da1212" />
+            <Label layoutX="44.0" layoutY="129.0" prefHeight="18.0" prefWidth="90.0" text="Prenom" textFill="#da1212" />
+            <Label layoutX="44.0" layoutY="162.0" prefHeight="18.0" prefWidth="90.0" text="Domaine" textFill="#da1212" />
+            <Label layoutX="44.0" layoutY="198.0" prefHeight="18.0" prefWidth="90.0" text="Email" textFill="#da1212" />
+            <Label layoutX="44.0" layoutY="231.0" prefHeight="18.0" prefWidth="90.0" text="Tel" textFill="#da1212" />
+            <TextField fx:id="Nom" layoutX="164.0" layoutY="90.0" promptText="Nom" />
+            <TextField fx:id="Prenom" layoutX="164.0" layoutY="125.0" promptText="Prenom" />
+            <TextField fx:id="Email" layoutX="164.0" layoutY="194.0" promptText="Exmple@gmail.com" />
+            <TextField fx:id="Tel" layoutX="164.0" layoutY="227.0" promptText="+216" />
             <ComboBox fx:id="domaine" layoutX="163.0" layoutY="158.0" prefWidth="150.0" promptText="Domaine" />
             <Button layoutX="130.0" layoutY="305.0" mnemonicParsing="false" onAction="#Addformateur" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #4BB543;" text="Modify" />
          </children>

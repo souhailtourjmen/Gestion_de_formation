@@ -1,105 +1,128 @@
 package com.example.gestion_de_formation.controler;
 
-import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-import com.example.gestion_de_formation.Application;
 import com.example.gestion_de_formation.DB.DbConnection;
+import com.example.gestion_de_formation.check.Check;
 import com.example.gestion_de_formation.modules.Organisation.Viewadmin;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 
-public class TableParticpant implements Initializable {
+public class TableParticpant implements Initializable{
 
     @FXML
-    private TableColumn<Viewadmin, String> Domaine;
+    private TextField email;
 
     @FXML
-    private TableColumn<Viewadmin, String> Formation;
+    private TextField mdp;
 
     @FXML
-    private TableColumn<Viewadmin, String> Nom;
+    private TextField nom;
 
     @FXML
-    private TableColumn<Viewadmin, String> Prenom;
+    private TextField prenom;
 
     @FXML
-    private TableColumn<Viewadmin, String> Profil;
-    @FXML
-    private TableView<Viewadmin> table;
+    private ComboBox profil;
 
-    
     @FXML
-    void Retour(ActionEvent event) throws IOException {
-       show("Admin","Home");
+    private TextField tel;
+    ObservableList dataprofil = FXCollections.observableArrayList();
+    public static Viewadmin views ;
+    DbConnection conn = new DbConnection();
+    int id ;
+    @FXML
+    void Addprofil(ActionEvent event) throws ClassNotFoundException, SQLException {
+        insertdat();
+        Admin.stage.close();
     }
-    ObservableList<Viewadmin> data = FXCollections.observableArrayList();
-    public void setdata() throws ClassNotFoundException, SQLException{
+
+    public void setprofil() throws SQLException, ClassNotFoundException {
         DbConnection conn = new DbConnection();
-            data.clear();
-            String req ="SELECT `particpant`.`nom`, `particpant`.`prenom`, `profil`.`labelle`, `section`.`idsession`, `session`.`idformation`, `formation`.`intitule`, `domaine`.`Libelle` FROM `particpant` LEFT JOIN `profil` ON `particpant`.`idprofil` = `profil`.`Idprofil` LEFT JOIN `section` ON `section`.`idparticipant` = `particpant`.`idparticpant` LEFT JOIN `session` ON `section`.`idsession` = `session`.`Idsession` LEFT JOIN `formation` ON `session`.`idformation` = `formation`.`id`  LEFT JOIN `domaine` ON `formation`.`domaine` = `domaine`.`idDomaine`;";
-            ResultSet rs=conn.select(req);
-            while (rs.next()){
-                Viewadmin views = new Viewadmin();
-                views.setItem1(rs.getString(1));
-                views.setItem2(rs.getString(2));
-                views.setItem3(rs.getString(3));
-                views.setItem4(rs.getString(4));
-                views.setItem5(rs.getString(5));
-                data.add(views);
-                table.setItems(data);
-            }
-    }
-    public void settable() throws ClassNotFoundException, SQLException{
-        
-        Nom.setCellValueFactory(new PropertyValueFactory<Viewadmin,String>("item1"));
-        Prenom.setCellValueFactory(new PropertyValueFactory<Viewadmin,String>("item2"));
-        Profil.setCellValueFactory(new PropertyValueFactory<Viewadmin,String>("item3"));
-        Formation.setCellValueFactory(new PropertyValueFactory<Viewadmin,String>("item4"));
-        Domaine.setCellValueFactory(new PropertyValueFactory<Viewadmin,String>("item5"));
-        table.getColumns().addAll(Nom,Prenom,Profil,Formation,Domaine);
- 
-    }
-    public void show(String page,String title) throws IOException {
-        String path="Views/"+page+".fxml";
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource(path));
-        Scene scene = new Scene(fxmlLoader.load());
-
-        try {
-            Login.stage.getIcons().add(new Image(this.getClass().getResource("Views/Img/Logo.png").toString()));
-        }catch (Exception e) {
-
+        String req="SELECT * FROM `profil` ";
+        ResultSet rs=conn.select(req);
+        while (rs.next()){
+            dataprofil.add(rs.getString("labelle"));
         }
-        Login.stage.setTitle(title);
-        Login.stage.setScene(scene);
-        Login.stage.show();
+        profil.setItems(dataprofil);
+    }
+
+    public void setchamp() throws ClassNotFoundException, SQLException{
+        setprofil();
+        String req ="SELECT `idparticpant`, `nom`, `prenom`, `email`, `tel`, `pwd`, `idprofil` FROM `particpant` WHERE `idparticpant`="+views.getId();
+        ResultSet rs = conn.select(req);
+        while (rs.next()){
+
+            nom.setText(rs.getString(2));
+            prenom.setText(rs.getString(3));
+            email.setText(rs.getString(4));
+            tel.setText(rs.getString(5));
+            mdp.setText(rs.getString(6));
+            id=rs.getInt(7);
+        }
+           
+            
+        
+    }
+    
+    public void insertdat() throws SQLException, ClassNotFoundException {
+        
+        
+        Check check =new Check();
+        String profile="";
+        
+            try {
+                profile=profil.getSelectionModel().getSelectedItem().toString();
+            } catch (Exception e) {
+                //TODO: handle exception
+            }
+         
+        String Nom=nom.getText();
+        String Prenom=prenom.getText();
+        String Email=email.getText();
+        String Tel=tel.getText();
+        String PWD=mdp.getText();
+    
+       String[] champ = new String[]{Nom,Prenom,Email,Tel};
+        if(check.check_champ(champ)!=0) {
+
+               if(!profile.equals("")){
+
+                   String req1="SELECT `Idprofil` FROM `profil` WHERE `labelle`='"+views.getItem3()+"'";
+                   ResultSet rs =conn.select(req1);
+                   while (rs.next()){
+                       id=rs.getInt(1);
+   
+                   }
+                   
+                }
+                    String req = "UPDATE `particpant` SET `nom`='"+Nom+"',`prenom`='"+Prenom+"',`email`='"+Email+"',`tel`='"+Tel+"',`pwd`='"+PWD+"' ,`idprofil`='"+id+"' WHERE  `idparticpant`="+views.getId();
+                    int result =conn.insert(req);
+                     if(result==1){
+                        check.showAlerterreur("insert success");
+                        }
+
+           
+        }else{
+            check.showAlerterreur("check champ");
+        }
     }
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+    
         try {
-            setdata();
+            setchamp();
         } catch (ClassNotFoundException | SQLException e) {
-            
-            e.printStackTrace();
-        }
-        try {
-            settable();
-        } catch (ClassNotFoundException | SQLException e) {
-            
-            e.printStackTrace();
+           
         }
     }
 

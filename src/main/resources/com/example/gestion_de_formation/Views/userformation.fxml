@@ -18,6 +18,6 @@
       <ComboBox fx:id="Formation" layoutX="109.0" layoutY="169.0" prefWidth="150.0" promptText="Formation" />
       <Button layoutX="110.0" layoutY="308.0" mnemonicParsing="false" onAction="#Addformation" prefHeight="26.0" prefWidth="142.0" style="-fx-background-color: #098B54;" text="Add formation" />
       <Label fx:id="datedeb" alignment="CENTER" layoutX="109.0" layoutY="215.0" prefHeight="26.0" prefWidth="150.0" style="-fx-border-color: #098B54;" text="Date debut" />
-      <Label fx:id="datefin" alignment="CENTER" layoutX="112.0" layoutY="252.0" prefHeight="26.0" prefWidth="150.0" style="-fx-border-color: #DA1212;" text="Date fin" />
+      <Label fx:id="datefin" alignment="CENTER" layoutX="109.0" layoutY="252.0" prefHeight="26.0" prefWidth="150.0" style="-fx-border-color: #DA1212;" text="Date fin" />
    </children>
 </AnchorPane>

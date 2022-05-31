@@ -72,6 +72,7 @@ public class User implements Initializable {
 
     static String account ;
     static Participant particpant = new Participant();
+    static Stage stage = new Stage();
     ObservableList<Viewsession> data = FXCollections.observableArrayList();
     @FXML
     void Addformation(ActionEvent event) throws IOException {
@@ -100,7 +101,7 @@ public class User implements Initializable {
 
     @FXML
     void logout(MouseEvent event) {
-
+            Login.stage.close();
         }
 
    
@@ -119,7 +120,7 @@ public class User implements Initializable {
         String path="Views/"+page+".fxml";
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource(path));
         Scene scene = new Scene(fxmlLoader.load());
-        Stage stage = new Stage();
+     
         try {
             stage.getIcons().add(new Image(this.getClass().getResource("Views/Img/Logo.png").toString()));
         }catch (Exception e) {

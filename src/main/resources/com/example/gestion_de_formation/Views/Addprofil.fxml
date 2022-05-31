@@ -10,7 +10,6 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="477.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestion_de_formation.controler.Addprofil">
    <children>
       <Label alignment="CENTER" layoutX="201.0" layoutY="42.0" prefHeight="18.0" prefWidth="198.0" text="Modify Profil" textFill="#041562">
@@ -21,22 +20,22 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff05" height="354.0" layoutX="47.0" layoutY="99.0" stroke="BLACK" strokeType="INSIDE" width="518.0" />
       <VBox layoutX="72.0" layoutY="148.0">
          <children>
-            <Label prefHeight="30.0" prefWidth="94.0" text="Nom">
+            <Label prefHeight="30.0" prefWidth="94.0" text="Nom" textFill="#da1212">
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>
             </Label>
-            <Label prefHeight="30.0" prefWidth="94.0" text="Prenom">
+            <Label prefHeight="30.0" prefWidth="94.0" text="Prenom" textFill="#da1212">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
             </Label>
-            <Label prefHeight="30.0" prefWidth="94.0" text="Tel">
+            <Label prefHeight="30.0" prefWidth="94.0" text="Tel" textFill="#da1212">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
             </Label>
-            <Label prefHeight="30.0" prefWidth="94.0" text="Profil">
+            <Label prefHeight="30.0" prefWidth="94.0" text="Profil" textFill="#da1212">
                <VBox.margin>
                   <Insets bottom="10.0" top="20.0" />
                </VBox.margin>

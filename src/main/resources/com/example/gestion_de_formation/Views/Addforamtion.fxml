@@ -12,16 +12,16 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="594.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestion_de_formation.controler.Addformation">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="354.0" layoutX="33.0" layoutY="71.0" stroke="BLACK" strokeType="INSIDE" width="515.0" />
-      <Label layoutX="204.0" layoutY="31.0" prefHeight="18.0" prefWidth="172.0" text="Addformation" textFill="#11468f">
+      <Label layoutX="204.0" layoutY="31.0" prefHeight="18.0" prefWidth="172.0" text="Addformation" textFill="#041562">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <Label layoutX="138.0" layoutY="125.0" prefHeight="18.0" prefWidth="90.0" text="Intitule" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="352.6" />
-      <Label layoutX="138.0" layoutY="161.0" prefHeight="18.0" prefWidth="90.0" text="Nombre de jour" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="352.6" />
-      <Label layoutX="138.0" layoutY="194.0" prefHeight="18.0" prefWidth="90.0" text="Domaine" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="352.6" />
-      <Label layoutX="138.0" layoutY="230.0" prefHeight="18.0" prefWidth="90.0" text="Formateur" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="352.6" />
-      <Label layoutX="138.0" layoutY="263.0" prefHeight="18.0" prefWidth="90.0" text="Nbr Participant" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="352.6" />
+      <Label layoutX="138.0" layoutY="125.0" prefHeight="18.0" prefWidth="90.0" text="Intitule" textFill="#da1212" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="352.6" />
+      <Label layoutX="138.0" layoutY="161.0" prefHeight="18.0" prefWidth="90.0" text="Nombre de jour" textFill="#da1212" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="352.6" />
+      <Label layoutX="138.0" layoutY="194.0" prefHeight="18.0" prefWidth="90.0" text="Domaine" textFill="#da1212" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="352.6" />
+      <Label layoutX="138.0" layoutY="230.0" prefHeight="18.0" prefWidth="90.0" text="Formateur" textFill="#da1212" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="352.6" />
+      <Label layoutX="138.0" layoutY="263.0" prefHeight="18.0" prefWidth="90.0" text="Nbr Participant" textFill="#da1212" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="352.6" />
       <TextField fx:id="Nom" layoutX="258.0" layoutY="122.0" promptText="Nom" AnchorPane.leftAnchor="258.0" AnchorPane.rightAnchor="186.39999999999998" />
       <TextField fx:id="nbrj" layoutX="258.0" layoutY="157.0" promptText="Nombre de jour" AnchorPane.leftAnchor="258.0" AnchorPane.rightAnchor="186.39999999999998" />
       <TextField fx:id="idformateur" layoutX="258.0" layoutY="226.0" promptText="Id Formateur" AnchorPane.leftAnchor="258.0" AnchorPane.rightAnchor="186.39999999999998" />
@@ -29,6 +29,6 @@
       <DatePicker fx:id="date" layoutX="259.0" layoutY="298.0" prefHeight="26.0" prefWidth="150.0" promptText="Date debut" />
       <ComboBox fx:id="domaine" layoutX="257.0" layoutY="190.0" prefWidth="150.0" promptText="Domaine" />
       <Button layoutX="224.0" layoutY="337.0" mnemonicParsing="false" onAction="#Addformation" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #4BB543;" text="AddFormateur" AnchorPane.leftAnchor="224.0" AnchorPane.rightAnchor="219.6" />
-      <Label layoutX="138.0" layoutY="302.0" prefHeight="18.0" prefWidth="90.0" text="Date" />
+      <Label layoutX="138.0" layoutY="302.0" prefHeight="18.0" prefWidth="90.0" text="Date" textFill="#da1212" />
    </children>
 </AnchorPane>

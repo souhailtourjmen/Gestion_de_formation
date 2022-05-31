@@ -61,7 +61,9 @@ public class Check {
             if(checkzone(champ[1])!=0){
                 return 0;
             }
-
+            if(checkchamp(champ[2])!=0){
+                return 0;
+            }
             if(cheknumber(champ[3])!=0){
                 return 0;
             }

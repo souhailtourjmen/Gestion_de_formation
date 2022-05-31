@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="606.0" prefWidth="722.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestion_de_formation.controler.Account">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="657.0" prefWidth="722.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestion_de_formation.controler.Account">
    <children>
       <ImageView fitHeight="437.0" fitWidth="444.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -49,9 +50,9 @@
             </HBox>
          </children>
       </VBox>
-      <VBox layoutX="397.0" layoutY="184.0" prefHeight="403.0" prefWidth="274.0">
+      <VBox layoutX="380.0" layoutY="173.0" prefHeight="474.0" prefWidth="274.0">
          <children>
-            <Label prefHeight="10.0" prefWidth="102.0" text="First name" textFill="#041562">
+            <Label prefHeight="10.0" prefWidth="102.0" text="First name" textFill="#da1212">
                <font>
                   <Font name="Verdana" size="13.0" />
                </font>
@@ -67,7 +68,7 @@
                   <Insets left="20.0" right="20.0" top="5.0" />
                </VBox.margin>
             </TextField>
-            <Label prefHeight="10.0" prefWidth="102.0" text="Last name" textFill="#041562">
+            <Label prefHeight="10.0" prefWidth="102.0" text="Last name" textFill="#da1212">
                <font>
                   <Font name="Verdana" size="13.0" />
                </font>
@@ -80,7 +81,7 @@
                   <Insets left="20.0" right="20.0" top="5.0" />
                </VBox.margin>
             </TextField>
-            <Label layoutX="30.0" layoutY="30.0" prefHeight="10.0" prefWidth="102.0" text="Email" textFill="#041562">
+            <Label layoutX="30.0" layoutY="30.0" prefHeight="10.0" prefWidth="102.0" text="Email" textFill="#da1212">
                <font>
                   <Font name="Verdana" size="13.0" />
                </font>
@@ -96,7 +97,7 @@
                   <Insets left="20.0" right="20.0" top="5.0" />
                </VBox.margin>
             </TextField>
-            <Label layoutX="30.0" layoutY="117.0" prefHeight="10.0" prefWidth="102.0" text="Tel" textFill="#041562">
+            <Label layoutX="30.0" layoutY="117.0" prefHeight="10.0" prefWidth="102.0" text="Tel" textFill="#da1212">
                <font>
                   <Font name="Verdana" size="13.0" />
                </font>
@@ -114,18 +115,26 @@
             </TextField>
             <HBox prefHeight="27.0" prefWidth="250.0">
                <children>
-                  <CheckBox fx:id="Idadmin" mnemonicParsing="false" text="Admin :">
+                  <CheckBox fx:id="Idadmin" mnemonicParsing="false" prefHeight="26.0" prefWidth="122.0" text="Admin :">
                      <HBox.margin>
-                        <Insets left="20.0" top="3.0" />
+                        <Insets bottom="10.0" left="10.0" top="10.0" />
                      </HBox.margin>
                   </CheckBox>
-                  <TextField fx:id="matricule" cache="true" promptText="Matricule" />
+                  <TextField fx:id="matricule" cache="true" prefHeight="26.0" prefWidth="126.0" promptText="Matricule">
+                     <HBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </HBox.margin></TextField>
+                  <ComboBox fx:id="Domaine" prefHeight="29.0" prefWidth="138.0" promptText="Domaine">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </ComboBox>
                </children>
                <VBox.margin>
                   <Insets left="5.0" top="10.0" />
                </VBox.margin>
             </HBox>
-            <Label layoutX="10.0" layoutY="216.0" prefHeight="10.0" prefWidth="102.0" text="Password" textFill="#041562">
+            <Label layoutX="10.0" layoutY="216.0" prefHeight="10.0" prefWidth="102.0" text="Password" textFill="#da1212">
                <font>
                   <Font name="Verdana" size="13.0" />
                </font>
@@ -141,7 +150,7 @@
                   <Insets left="20.0" right="20.0" />
                </VBox.margin>
             </PasswordField>
-            <Label layoutX="10.0" layoutY="220.0" prefHeight="16.0" prefWidth="149.0" text="Confirm Password" textFill="#041562">
+            <Label layoutX="10.0" layoutY="220.0" prefHeight="16.0" prefWidth="149.0" text="Confirm Password" textFill="#da1212">
                <font>
                   <Font name="Verdana" size="13.0" />
                </font>

@@ -43,7 +43,7 @@ public class Userformation implements Initializable {
     @FXML
     void Addformation(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
         insertdat();
-        show();
+        User.stage.close();
     }
     
 
@@ -100,19 +100,7 @@ public class Userformation implements Initializable {
     conn.insert(sql);
    }
     
-     public void show() throws IOException {
-         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Views/UserDashbord.fxml"));
-         Scene scene = new Scene(fxmlLoader.load());
-         Stage stage = new Stage();
-         try {
-             stage.getIcons().add(new Image(this.getClass().getResource("Views/Img/Logo.png").toString()));
-         }catch (Exception e) {
-
-         }
-         stage.setTitle("Welcome !");
-         stage.setScene(scene);
-         stage.show();
-    }
+  
                      
    
 }

@@ -1,36 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestion_de_formation.controler.TableParticpant">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="582.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestion_de_formation.controler.TableParticpant">
    <effect>
       <DropShadow />
    </effect>
    <children>
-      <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#Retour" prefHeight="19.0" prefWidth="21.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 50;" textFill="WHITE" AnchorPane.bottomAnchor="376.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="569.0" AnchorPane.topAnchor="5.0">
-         <graphic>
-            <ImageView fitHeight="20.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Img/icons8-accueil-24%20(2).png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <TableView fx:id="table" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
-        <columns>
-          <TableColumn fx:id="Nom" prefWidth="101.5999755859375" text="Nom" />
-            <TableColumn fx:id="Prenom" prefWidth="123.20001220703125" text="Prenom" />
-          <TableColumn fx:id="Profil" prefWidth="106.4000244140625" text="Profil" />
-            <TableColumn fx:id="Formation" prefWidth="139.199951171875" text="Formation" />
-            <TableColumn fx:id="Domaine" prefWidth="125.60003662109375" text="Domaine" />
-        </columns>
-      </TableView>
+      <Label alignment="CENTER" layoutX="180.0" prefHeight="18.0" prefWidth="198.0" text="Modify Profil" textFill="#041562">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff05" height="427.0" layoutX="26.0" layoutY="57.0" stroke="BLACK" strokeType="INSIDE" width="518.0" />
+      <VBox layoutX="51.0" layoutY="106.0">
+         <children>
+            <Label prefHeight="30.0" prefWidth="94.0" text="Nom" textFill="#da1212">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
+            <Label prefHeight="30.0" prefWidth="94.0" text="Prenom" textFill="#da1212">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+            <Label prefHeight="30.0" prefWidth="94.0" text="Tel" textFill="#da1212">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+            <Label prefHeight="30.0" prefWidth="94.0" text="Profil" textFill="#da1212">
+               <VBox.margin>
+                  <Insets bottom="10.0" top="20.0" />
+               </VBox.margin>
+            </Label>
+            <Label layoutX="40.0" layoutY="166.0" prefHeight="30.0" prefWidth="94.0" text="Email" textFill="#da1212">
+               <VBox.margin>
+                  <Insets bottom="5.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label layoutX="40.0" layoutY="207.0" prefHeight="30.0" prefWidth="94.0" text="Mot de passe " textFill="#da1212">
+               <VBox.margin>
+                  <Insets bottom="5.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+         <padding>
+            <Insets left="30.0" />
+         </padding>
+      </VBox>
+      <VBox layoutX="239.0" layoutY="114.0" prefHeight="186.0" prefWidth="150.0">
+         <children>
+            <TextField fx:id="nom">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="prenom">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="tel">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </TextField>
+            <ComboBox fx:id="profil" prefWidth="150.0">
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </ComboBox>
+            <TextField fx:id="email">
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="mdp">
+               <VBox.margin>
+                  <Insets top="18.0" />
+               </VBox.margin>
+            </TextField>
+         </children>
+      </VBox>
+      <Button layoutX="192.0" layoutY="423.0" mnemonicParsing="false" onAction="#Addprofil" prefHeight="26.0" prefWidth="198.0" style="-fx-background-color: #098B54;" text="Modify" textFill="WHITE" />
    </children>
 </AnchorPane>

@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
@@ -19,24 +18,24 @@
       <AnchorPane layoutY="64.0" prefHeight="390.0" prefWidth="410.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="354.0" layoutX="7.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="390.0" />
-            <Label layoutX="69.0" layoutY="73.0" prefHeight="18.0" prefWidth="90.0" text="Intitule" />
-            <Label layoutX="69.0" layoutY="109.0" prefHeight="18.0" prefWidth="90.0" text="Nombre de jour" />
-            <Label layoutX="69.0" layoutY="142.0" prefHeight="18.0" prefWidth="90.0" text="Domaine" />
-            <Label layoutX="69.0" layoutY="178.0" prefHeight="18.0" prefWidth="90.0" text="Formateur" />
-            <Label layoutX="69.0" layoutY="211.0" prefHeight="18.0" prefWidth="90.0" text="Nbr Participant" />
+            <Label layoutX="69.0" layoutY="73.0" prefHeight="18.0" prefWidth="90.0" text="Intitule" textFill="#da1212" />
+            <Label layoutX="69.0" layoutY="109.0" prefHeight="18.0" prefWidth="90.0" text="Nombre de jour" textFill="#da1212" />
+            <Label layoutX="69.0" layoutY="142.0" prefHeight="18.0" prefWidth="90.0" text="Domaine" textFill="#da1212" />
+            <Label layoutX="69.0" layoutY="178.0" prefHeight="18.0" prefWidth="90.0" text="Formateur" textFill="#da1212" />
+            <Label layoutX="69.0" layoutY="211.0" prefHeight="18.0" prefWidth="90.0" text="Nbr Participant" textFill="#da1212" />
             <TextField fx:id="Nom" layoutX="189.0" layoutY="70.0" promptText="Nom" />
             <TextField fx:id="nbrj" layoutX="189.0" layoutY="105.0" promptText="Nombre de jour" />
             <TextField fx:id="idformateur" layoutX="189.0" layoutY="174.0" promptText="Id Formateur" />
             <TextField fx:id="nbrp" layoutX="189.0" layoutY="207.0" promptText="Nombre Participant" />
-            <DatePicker fx:id="date" layoutX="190.0" layoutY="246.0" prefHeight="26.0" prefWidth="150.0" promptText="Date debut" />
             <ComboBox fx:id="domaine" layoutX="188.0" layoutY="138.0" prefWidth="150.0" promptText="Domaine" />
             <Button layoutX="130.0" layoutY="305.0" mnemonicParsing="false" onAction="#Addformation" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #4BB543;" text="Modify" />
-            <Label layoutX="69.0" layoutY="250.0" prefHeight="18.0" prefWidth="90.0" text="Date" />
+            <Label layoutX="69.0" layoutY="250.0" prefHeight="18.0" prefWidth="90.0" text="Date" textFill="#da1212" />
+            <Label fx:id="date" layoutX="188.0" layoutY="250.0" prefHeight="18.0" prefWidth="150.0" text="Label" />
          </children>
       </AnchorPane>
       <Pane layoutX="1.0" layoutY="-1.0" prefHeight="58.0" prefWidth="410.0">
          <children>
-            <Label layoutX="119.0" layoutY="10.0" prefHeight="18.0" prefWidth="172.0" text="Addformation" textFill="#11468f">
+            <Label layoutX="100.0" layoutY="10.0" prefHeight="39.0" prefWidth="241.0" text="Modify formation" textFill="#11468f">
                <font>
                   <Font size="27.0" />
                </font>

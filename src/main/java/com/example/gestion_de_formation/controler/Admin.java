@@ -99,12 +99,14 @@ public class Admin  implements Initializable{
     @FXML
     private TableColumn<Viewadmin, String> IDD;
 
+   
 
     ObservableList<Viewadmin> data = FXCollections.observableArrayList();
 
     public static String account ;
     String namepage="";
     String Sqldel="DELETE FROM `session` WHERE `Idsession`=";
+    Check check ;
     @FXML
     void Addformateur(ActionEvent event) throws IOException {
         show("Addformateur","Addformateur");
@@ -114,6 +116,22 @@ public class Admin  implements Initializable{
     @FXML
     void Addformation(ActionEvent event) throws IOException {
         show("Addforamtion","Addformation");
+    }
+
+    @FXML
+    void Derction(ActionEvent event) {
+        namepage="TableAdmin";
+        Sqldel="DELETE FROM `administration` WHERE `id` =";
+        Titre.setText("List Directions ");
+        data.clear();
+        Check.Sql="SELECT `administration`.`id`, `administration`.`nom`, `administration`.`prenom`, `administration`.`email`, `admin`.`post`, `domaine`.`Libelle` FROM `administration` LEFT JOIN `admin` ON `administration`.`idadmin` = `admin`.`id`  LEFT JOIN `domaine` ON `administration`.`Iddomaine` = `domaine`.`idDomaine`;";
+        changenomcolumns("Nom","Prenom ","Email","Post","Domaine");
+        try {
+            setdata(Check.Sql);
+        } catch (ClassNotFoundException | SQLException e) {
+            
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -134,10 +152,10 @@ public class Admin  implements Initializable{
 
     @FXML
     void Formation(ActionEvent event) throws IOException {
-         namepage="Tableformation";
+        namepage="Tableformation";
         Sqldel="DELETE FROM `formation` WHERE `id` =";
         Titre.setText("List Formation");
-        changenomcolumns("Id","Formation","Domaine","Debut","Prenom Formateur");
+        changenomcolumns("Formation","Id domaine","Debut","Id formateur","Prenom Formateur");
         data.clear();
         Check.Sql="SELECT `formation`.`id`, `formation`.`intitule`, `formation`.`domaine`, `session`.`debut`, `formateur`.`id`, `formateur`.`prenom` FROM `formation`   LEFT JOIN `session` ON `session`.`idformation` = `formation`.`id`  LEFT JOIN `formateur` ON `formation`.`idformateur` = `formateur`.`id` ORDER by `session`.`debut` DESC ;";
         try {
@@ -251,7 +269,7 @@ public class Admin  implements Initializable{
         table.getColumns().addAll(Item1,Item2,Item3,Item4,Item5);
  
     }
-   
+   static Stage stage = new Stage();
     String Itemselcted="Null";
     public void button () {
         Callback<TableColumn<Viewadmin, String>, TableCell<Viewadmin, String>> cellFoctory = (TableColumn<Viewadmin, String> param) -> {
@@ -283,7 +301,11 @@ public class Admin  implements Initializable{
                              else if(!Itemselcted.equals(String.valueOf(views.getId()))){
                                  DbConnection conn = new DbConnection();
                                  try {
-                                    conn.delete(Sqldel+views.getId());
+                                    
+                                    int reuslt =conn.delete(Sqldel+views.getId());
+                                    if(reuslt==1){
+                                        check.showAlerterreur("delete success");
+                                    }
                                 } catch (ClassNotFoundException e) {
                                     // TODO Auto-generated catch block
                                     e.printStackTrace();
@@ -293,6 +315,7 @@ public class Admin  implements Initializable{
                                 }
 
                                 Itemselcted=String.valueOf(views.getId());
+                            
                              }
                           
                             
@@ -302,21 +325,26 @@ public class Admin  implements Initializable{
 
                         });
                         editIcon.setOnMouseClicked((MouseEvent event) -> {
-                            try {
-                            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Views/"+namepage+".fxml"));
-                            Scene scene;
-                            Stage stage = new Stage();
-                          
-                                scene = new Scene(fxmlLoader.load());
-                           
-                            try {
-                                stage.getIcons().add(new Image(this.getClass().getResource("Views/Img/Logo.png").toString()));
-                            }catch (Exception e) {
-                    
-                            }
-                            stage.setTitle(namepage);
-                            stage.setScene(scene);
-                            stage.show();
+                            try {   
+                                Viewadmin views = table.getSelectionModel().getSelectedItem();
+                                if(views!=null) {
+                                    choisirtable(views);
+                                    FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Views/"+namepage+".fxml"));
+                                    Scene scene;
+                                
+                                        scene = new Scene(fxmlLoader.load());
+                                
+                                    try {
+                                        stage.getIcons().add(new Image(this.getClass().getResource("Views/Img/Logo.png").toString()));
+                                    }catch (Exception e) {
+                            
+                                    }
+                                    stage.setTitle(namepage);
+                                    stage.setScene(scene);
+                                    stage.show();
+                                }else{
+                                    Check.showAlerterreur(" Item no Selected");
+                                }
                             } catch (IOException e1) {
                             // TODO Auto-generated catch block
                             e1.printStackTrace();
@@ -351,5 +379,18 @@ public class Admin  implements Initializable{
         Item5.setText(item5);
     }
     
+    public void choisirtable(Viewadmin views){
+        switch(namepage) {
+            case "TableParicpant":
+                TableParticpant.views=views;
+             
+            case "Tableformation":
+                Tableformation.views=views;
+            case "TableAdmin":
+                TableAdmin.views=views;
+            default:
+                Tableformateur.views=views;
+          }
 
+    }
 }

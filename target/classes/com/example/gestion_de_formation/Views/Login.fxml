@@ -12,14 +12,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="525.0" prefWidth="901.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestion_de_formation.controler.Login">
+<AnchorPane prefHeight="525.0" prefWidth="720.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestion_de_formation.controler.Login">
    <children>
-      <ImageView fitHeight="446.0" fitWidth="438.0" layoutX="95.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="446.0" fitWidth="438.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Img/backgroundlogin.png" />
          </image>
       </ImageView>
-      <VBox layoutX="557.0" layoutY="81.0" prefHeight="97.0" prefWidth="295.0">
+      <VBox layoutX="366.0" layoutY="74.0" prefHeight="117.0" prefWidth="305.0">
          <children>
             <Label prefHeight="49.0" prefWidth="226.0" text="Login" textFill="#11468f">
                <font>
@@ -48,9 +48,9 @@
             </HBox>
          </children>
       </VBox>
-      <VBox layoutX="547.0" layoutY="185.0" prefHeight="218.0" prefWidth="274.0">
+      <VBox layoutX="407.0" layoutY="186.0" prefHeight="218.0" prefWidth="274.0">
          <children>
-            <Label prefHeight="10.0" prefWidth="102.0" text="Email" textFill="#041562">
+            <Label prefHeight="10.0" prefWidth="102.0" text="Email" textFill="#da1212">
                <font>
                   <Font name="Verdana" size="13.0" />
                </font>
@@ -66,7 +66,7 @@
                   <Insets bottom="10.0" left="20.0" right="20.0" />
                </VBox.margin>
             </TextField>
-            <Label prefHeight="10.0" prefWidth="102.0" text="Password" textFill="#041562">
+            <Label prefHeight="10.0" prefWidth="102.0" text="Password" textFill="#da1212">
                <font>
                   <Font name="Verdana" size="13.0" />
                </font>

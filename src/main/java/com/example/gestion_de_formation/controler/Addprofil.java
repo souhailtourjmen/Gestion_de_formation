@@ -42,7 +42,7 @@ public class Addprofil implements Initializable {
     void Addprofil(ActionEvent event) throws SQLException, ClassNotFoundException, IOException {
         update();
         setdata();
-        show("UserDashbord");
+        User.stage.close();
     }
     ObservableList dataprofil = FXCollections.observableArrayList();
     
@@ -74,7 +74,13 @@ public class Addprofil implements Initializable {
         tel.setText(User.particpant.getTel());
     }
     public void update() throws SQLException, ClassNotFoundException {
-        String Profil= profil.getSelectionModel().getSelectedItem().toString();
+        String Profil="";
+        try {
+            Profil= profil.getSelectionModel().getSelectedItem().toString();
+        } catch (Exception e) {
+            //TODO: handle exception
+        }
+      
         if(tel.getText().length()<9){
         String req="UPDATE `particpant` SET `nom` = '"+nom.getText()+"', `prenom` = '"+prenom.getText()+"',`tel` = '"+tel.getText()+"' ,`idprofil` = '"+cherche(Profil)+"' WHERE `particpant`.`idparticpant` = "+User.particpant.getId()+" AND `particpant`.`email` = '"+User.account+"';";
         DbConnection conn = new DbConnection();
@@ -94,19 +100,4 @@ public class Addprofil implements Initializable {
         }
         return id;
     }
-    public void show(String page) throws IOException {
-        String path="Views/"+page+".fxml";
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource(path));
-        Scene scene = new Scene(fxmlLoader.load());
-
-        try {
-            Login.stage.getIcons().add(new Image(this.getClass().getResource("Views/Img/Logo.png").toString()));
-        }catch (Exception e) {
-
-        }
-        Login.stage.setTitle("Welcome !");
-        Login.stage.setScene(scene);
-        Login.stage.show();
-    }
-    
    }
