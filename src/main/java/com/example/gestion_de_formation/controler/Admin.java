@@ -206,6 +206,23 @@ public class Admin  implements Initializable{
         show("AddSession","AddSession");
     }
 
+
+    
+    @FXML
+    void Codepost(ActionEvent event) throws IOException {
+        show("Addpost","AddPost");
+    }
+
+    @FXML
+    void profil(ActionEvent event) throws IOException {
+        show("Addtableprofil","AddProfil");
+    }
+    
+    @FXML
+    void domaine(ActionEvent event) throws IOException {
+        show("Adddomaine","Adddomaine");
+    }
+
     @FXML
     void logout(MouseEvent event) {
 
