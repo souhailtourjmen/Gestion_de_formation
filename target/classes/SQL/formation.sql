@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3325
--- Généré le : mar. 31 mai 2022 à 17:35
+-- Généré le : mer. 01 juin 2022 à 15:02
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 8.1.6
 
@@ -37,6 +37,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `post`) VALUES
+(4112, 'Stagaire'),
 (4115, 'sous administrateur'),
 (4116, 'Administrateur ');
 
@@ -62,7 +63,8 @@ CREATE TABLE `administration` (
 --
 
 INSERT INTO `administration` (`id`, `nom`, `prenom`, `email`, `tel`, `pwd`, `idadmin`, `Iddomaine`) VALUES
-(4, 'Nouha', 'Nouha', 'Nouha@gmail.com', '22222222', '123', 17, 4116);
+(8, 'souha', 'souh', 'souha123', '1234', '123', 4116, 1),
+(9, 'admin', 'admin', 'souha', '123333', '123', 4116, 17);
 
 -- --------------------------------------------------------
 
@@ -209,8 +211,13 @@ CREATE TABLE `section` (
 
 INSERT INTO `section` (`idsession`, `idparticipant`) VALUES
 (5, 0),
+(5, 11),
 (5, 12),
+(6, 0),
+(6, 11),
 (6, 12),
+(8, 0),
+(8, 11),
 (8, 12);
 
 -- --------------------------------------------------------
@@ -254,8 +261,6 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`email`, `password`, `role`) VALUES
 ('admin', 'admin', 'A'),
-('tourjmen45@gmail.com', '123', 'U'),
-('tourjmen@gmail.com', '123', 'S'),
 ('user', 'user', 'U');
 
 --
@@ -272,10 +277,11 @@ ALTER TABLE `admin`
 -- Index pour la table `administration`
 --
 ALTER TABLE `administration`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`id`,`idadmin`),
   ADD UNIQUE KEY `email` (`email`),
-  ADD KEY `idamdni` (`idadmin`),
-  ADD KEY `idom` (`Iddomaine`);
+  ADD UNIQUE KEY `idadmin` (`idadmin`,`Iddomaine`),
+  ADD KEY `idom` (`Iddomaine`),
+  ADD KEY `idamdni` (`idadmin`) USING BTREE;
 
 --
 -- Index pour la table `domaine`
@@ -347,7 +353,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT pour la table `administration`
 --
 ALTER TABLE `administration`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT pour la table `domaine`

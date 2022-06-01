@@ -89,6 +89,8 @@ public class Account  implements Initializable{
                             conn.insert(req);
                             String req1="INSERT INTO `user`(`email`, `password`, `role`) VALUES ('"+champ[2]+"','"+champ[4]+"','U')";
                             conn.insert(req1);
+                            User.account=mail.getText();
+                            show("UserDashbord");
 
                         }else{
                             Check.showAlerterreur("Compte exist");
@@ -97,8 +99,7 @@ public class Account  implements Initializable{
                     }catch(Exception e){
 
                     }
-                    User.account=mail.getText();
-                    show("UserDashbord");
+                   
 
                 }else{
                     champ = new String[]{nom.getText(), prenom.getText(), mail.getText(), tel.getText(), pwd.getText(),matricule.getText()};
@@ -106,13 +107,23 @@ public class Account  implements Initializable{
                         String reqcherche="SELECT * FROM `admin` WHERE id="+champ[5];
                         if((check.checkchamp(champ[5])==0)&&(conn.checkaccount(reqcherche) ==1)) {
                             String domaine=Domaine.getSelectionModel().getSelectedItem().toString();
-                            String req = "INSERT INTO `administration` (`nom`, `prenom`, `email`, `tel`, `pwd`, `idadmin`, `Iddomaine`) VALUES ('"+nom.getText()+"', '"+prenom.getText()+"', '"+mail.getText()+"', '"+tel.getText()+"', '"+pwd.getText()+"', '"+matricule.getText()+"', '"+rechdomaine(domaine)+"');";
-                            int i=conn.insert(req);
-                            if(i==1){
-                                Check.showAlerterreur( "insert success compte admin !");
+                            String reqcontraint="SELECT `idadmin`, `Iddomaine` FROM `administration` WHERE `idadmin`= "+matricule.getText()+" AND `Iddomaine`="+rechdomaine(domaine)+" ;";
+                            if(conn.checkaccount(reqcontraint)==0){
+                                String req = "INSERT INTO `administration` (`nom`, `prenom`, `email`, `tel`, `pwd`, `idadmin`, `Iddomaine`) VALUES ('"+nom.getText()+"', '"+prenom.getText()+"', '"+mail.getText()+"', '"+tel.getText()+"', '"+pwd.getText()+"', '"+matricule.getText()+"', '"+rechdomaine(domaine)+"');";
+                                int i=conn.insert(req);
+                                if(i==1){
+                                    Check.showAlerterreur( "insert success compte admin !");
+                                }
+                                String req1="INSERT INTO `user`(`email`, `password`, `role`) VALUES ('"+champ[2]+"','"+champ[4]+"','S')";
+                                conn.insert(req1);
+                                Admin.account=mail.getText();
+                                show("Admin");
+                               
+                                
+                            }else{
+                                Check.showAlerterreur("Duplicate entry  for key 'Administration'");
                             }
-                            String req1="INSERT INTO `user`(`email`, `password`, `role`) VALUES ('"+champ[2]+"','"+champ[4]+"','S')";
-                            conn.insert(req1);
+                           
 
                         }else{
                             Check.showAlerterreur("compte !");
@@ -121,8 +132,7 @@ public class Account  implements Initializable{
                     }catch(Exception e){
 
                     }
-                    Admin.account=mail.getText();
-                    show("Admin");
+                    
                 }
 
             }else{
