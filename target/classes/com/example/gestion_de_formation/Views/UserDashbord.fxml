@@ -47,14 +47,15 @@
                                         <Insets right="10.0" top="30.0" />
                                     </VBox.margin>
                            <children>
-                              <TableView fx:id="table" prefHeight="395.0" prefWidth="707.0">
-                                <columns>
-                                  <TableColumn fx:id="nomf" prefWidth="190.39998471736908" text="Nom de formation" />
-                                  <TableColumn fx:id="nomd" minWidth="0.0" prefWidth="241.5999755859375" text="Nom domaine" />
-                                    <TableColumn fx:id="dab" minWidth="0.0" prefWidth="113.59982299804688" text="Date debut" />
-                                    <TableColumn fx:id="daf" prefWidth="84.8001708984375" text="Date de fin" />
-                                    <TableColumn fx:id="btnnn" prefWidth="75.0" />
-                                </columns>
+                              <TableView fx:id="table" prefHeight="450.0" prefWidth="698.0">
+                                 <columns>
+                                    <TableColumn fx:id="ID" prefWidth="50.40002250671387" text="ID Session" />
+                                    <TableColumn fx:id="nomf" prefWidth="175.20000457763672" text="Nom Formation" />
+                                    <TableColumn fx:id="nomd" prefWidth="165.60003662109375" text="Nom Domaine" />
+                                    <TableColumn fx:id="dab" minWidth="7.20001220703125" prefWidth="136.79995727539062" text=" Debut de formation " />
+                                    <TableColumn fx:id="daf" prefWidth="107.2000732421875" text="Fin de formation" />
+                                    <TableColumn fx:id="btn" maxWidth="183.19998779296873" minWidth="0.0" prefWidth="61.5999755859375" />
+                                 </columns>
                               </TableView>
                            </children>
                                 </AnchorPane>
@@ -76,9 +77,9 @@
                                         <Image url="@Img/Logo.png" />
                                     </image>
                                 </ImageView>
-                                <Label fx:id="Account" alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="78.0" text="Label" textAlignment="CENTER" textFill="#da1212">
+                                <Label fx:id="Account" alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="166.0" text="Label" textAlignment="CENTER" textFill="#da1212">
                                     <VBox.margin>
-                                        <Insets left="50.0" right="30.0" top="5.0" />
+                                        <Insets left="20.0" right="30.0" top="5.0" />
                                     </VBox.margin>
                                     <font>
                                         <Font name="Cambria" size="16.0" />
@@ -153,6 +154,5 @@
                 </AnchorPane>
             </left>
         </BorderPane>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" />
     </children>
 </AnchorPane>

@@ -69,6 +69,6 @@
             </ComboBox>
          </children>
       </VBox>
-      <Button layoutX="236.0" layoutY="383.0" mnemonicParsing="false" onAction="#Addprofil" prefHeight="26.0" prefWidth="198.0" style="-fx-background-color: #098B54;" text="Button" textFill="WHITE" />
+      <Button layoutX="236.0" layoutY="383.0" mnemonicParsing="false" onAction="#Addprofil" prefHeight="26.0" prefWidth="198.0" style="-fx-background-color: #098B54;" text="Add Profil" textFill="WHITE" />
    </children>
 </AnchorPane>

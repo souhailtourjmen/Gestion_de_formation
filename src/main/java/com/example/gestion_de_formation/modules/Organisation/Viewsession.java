@@ -3,6 +3,7 @@ package com.example.gestion_de_formation.modules.Organisation;
 import java.sql.Date;
 
 public class Viewsession {
+    private String id;
     private String Nomf;
     private String Nomd;
     private Date datedeb;
@@ -10,6 +11,12 @@ public class Viewsession {
     private String db;
     private String df;
 
+    public void setId(String id) {
+        this.id = id;
+    }
+    public String getId() {
+        return id;
+    }
     public void setDb(String db) {
         this.db = db;
     }

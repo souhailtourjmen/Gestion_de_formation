@@ -104,11 +104,13 @@ public class Account  implements Initializable{
                     champ = new String[]{nom.getText(), prenom.getText(), mail.getText(), tel.getText(), pwd.getText(),matricule.getText()};
                     try {
                         String reqcherche="SELECT * FROM `admin` WHERE id="+champ[5];
-                        if((check.checkchamp(champ[5])==0)&(conn.checkaccount(reqcherche) ==1)) {
+                        if((check.checkchamp(champ[5])==0)&&(conn.checkaccount(reqcherche) ==1)) {
                             String domaine=Domaine.getSelectionModel().getSelectedItem().toString();
-
-                            String req = "INSERT INTO `administration`( `nom`, `prenom`, `email`, `tel`, `pwd`, `idadmin`, `Id domaine` ) VALUES ('"+champ[0]+"','"+champ[1]+"','"+champ[2]+"','"+champ[3]+"','"+champ[4]+"',"+champ[5]+",'"+rechdomaine(domaine)+"')";
-                            conn.insert(req);
+                            String req = "INSERT INTO `administration` (`nom`, `prenom`, `email`, `tel`, `pwd`, `idadmin`, `Iddomaine`) VALUES ('"+nom.getText()+"', '"+prenom.getText()+"', '"+mail.getText()+"', '"+tel.getText()+"', '"+pwd.getText()+"', '"+matricule.getText()+"', '"+rechdomaine(domaine)+"');";
+                            int i=conn.insert(req);
+                            if(i==1){
+                                Check.showAlerterreur( "insert success compte admin !");
+                            }
                             String req1="INSERT INTO `user`(`email`, `password`, `role`) VALUES ('"+champ[2]+"','"+champ[4]+"','S')";
                             conn.insert(req1);
 
@@ -128,9 +130,8 @@ public class Account  implements Initializable{
             }
 
 
-        }
-        else{
-
+        }else{
+            Check.showAlerterreur("champ est vide  !");
         }
     }
 

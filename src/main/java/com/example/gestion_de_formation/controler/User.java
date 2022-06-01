@@ -2,20 +2,24 @@ package com.example.gestion_de_formation.controler;
 
 import com.example.gestion_de_formation.Application;
 import com.example.gestion_de_formation.DB.DbConnection;
+import com.example.gestion_de_formation.check.Check;
 import com.example.gestion_de_formation.modules.Organisation.Participant;
 import com.example.gestion_de_formation.modules.Organisation.Viewsession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -26,6 +30,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import static java.lang.Integer.parseInt;
+import javafx.util.Callback;
 
 public class User implements Initializable {
 
@@ -47,21 +52,21 @@ public class User implements Initializable {
     @FXML
     private Button btnsesion;
 
-    
+    @FXML
+    private TableColumn<Viewsession, String> ID;
 
     @FXML
     private TableColumn<Viewsession, String> nomd;
 
     @FXML
     private TableColumn<Viewsession, String> nomf;
-    @FXML
-    private TableColumn<Viewsession, String> btnnn;
 
     @FXML
     private TableColumn<Viewsession, String> dab;
-
     @FXML
     private TableColumn<Viewsession, String> daf;
+    @FXML
+    private TableColumn<Viewsession, String> btn;
     @FXML
     private Label titel;
 
@@ -108,7 +113,7 @@ public class User implements Initializable {
 
     public void settable() throws ClassNotFoundException, SQLException{
         setdata();
-       
+        ID.setCellValueFactory(new PropertyValueFactory<Viewsession,String>("id"));
         nomf.setCellValueFactory(new PropertyValueFactory<Viewsession,String>("Nomf"));
         nomd.setCellValueFactory(new PropertyValueFactory<Viewsession,String>("Nomd"));
         dab.setCellValueFactory(new PropertyValueFactory<Viewsession,String>("db"));
@@ -147,7 +152,7 @@ public class User implements Initializable {
     public void setdata() throws ClassNotFoundException, SQLException{
         DbConnection conn = new DbConnection();
             data.clear();
-            String req="SELECT   `F`.`intitule` AS `Nom de formation`, `D`.`Libelle` AS `Nom de domaine`,`SE`.`debut` AS `Date de debut`, `SE`.`fin` AS `Date de fin`FROM `section` AS `S` LEFT JOIN `session` AS `SE` ON `S`.`idsession` = `SE`.`Idsession`  LEFT JOIN `formation` AS `F` ON `SE`.`idformation` = `F`.`id` LEFT JOIN `domaine` AS `D` ON `F`.`domaine` = `D`.`idDomaine` WHERE `S`.`idparticipant`='"+User.particpant.getId()+"';";
+            String req="SELECT   `F`.`intitule` AS `Nom de formation`, `D`.`Libelle` AS `Nom de domaine`,`SE`.`debut` AS `Date de debut`, `SE`.`fin` AS `Date de fin`, `SE`.`Idsession` FROM `section` AS `S` LEFT JOIN `session` AS `SE` ON `S`.`idsession` = `SE`.`Idsession`  LEFT JOIN `formation` AS `F` ON `SE`.`idformation` = `F`.`id` LEFT JOIN `domaine` AS `D` ON `F`.`domaine` = `D`.`idDomaine` WHERE `S`.`idparticipant`='"+User.particpant.getId()+"';";
             ResultSet rs=conn.select(req);
             while (rs.next()){
                 Viewsession views =new Viewsession();
@@ -157,10 +162,16 @@ public class User implements Initializable {
                 views.setDatefin(rs.getDate(4));
                 views.setDb(String.valueOf(rs.getDate(3)));
                 views.setDf(String.valueOf(rs.getDate(4)));
+                views.setId((rs.getString(5)));
                 data.add(views);
                 table.setItems(data);
             }
     }
+    
+    String Itemselcted="Null";
+    Check check =new Check();
+
+
 
 
     @Override

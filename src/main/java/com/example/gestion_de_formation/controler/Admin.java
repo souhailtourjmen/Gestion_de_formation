@@ -225,7 +225,7 @@ public class Admin  implements Initializable{
 
     @FXML
     void logout(MouseEvent event) {
-
+        Login.stage.close();
     }
     public void show(String page,String title) throws IOException {
         String path="Views/"+page+".fxml";
@@ -288,6 +288,7 @@ public class Admin  implements Initializable{
     }
    static Stage stage = new Stage();
     String Itemselcted="Null";
+    
     public void button () {
         Callback<TableColumn<Viewadmin, String>, TableCell<Viewadmin, String>> cellFoctory = (TableColumn<Viewadmin, String> param) -> {
             // make cell containing buttons

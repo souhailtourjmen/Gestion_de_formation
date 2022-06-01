@@ -22,11 +22,6 @@
             <HBox>
                <children>
                   <Label prefHeight="18.0" prefWidth="348.0" text="Id Post                           auto incrémenté" textFill="#da1212" />
-                  <TextField fx:id="id" prefHeight="26.0" prefWidth="161.0" visible="false">
-                     <HBox.margin>
-                        <Insets left="30.0" right="30.0" />
-                     </HBox.margin>
-                  </TextField>
                </children>
                <VBox.margin>
                   <Insets top="10.0" />

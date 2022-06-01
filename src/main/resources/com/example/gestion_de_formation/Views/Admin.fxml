@@ -122,9 +122,9 @@
                                         <Image url="@Img/Logo.png" />
                                     </image>
                                 </ImageView>
-                                <Label fx:id="Account" alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="78.0" text="Label" textAlignment="CENTER" textFill="#da1212">
+                                <Label fx:id="Account" alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="189.0" text="Label" textAlignment="CENTER" textFill="#da1212">
                                     <VBox.margin>
-                                        <Insets left="50.0" right="30.0" top="5.0" />
+                                        <Insets left="20.0" right="30.0" top="5.0" />
                                     </VBox.margin>
                                     <font>
                                         <Font name="Cambria" size="16.0" />
